@@ -732,11 +732,15 @@
   </fieldType>
 
   <!-- FieldType for keywords stemming -->
+  <!-- Splits GCMD-style keywords on '>' boundaries, e.g.
+       "EARTH SCIENCE > OCEANS > OCEAN CHEMISTRY > BIOGEOCHEMICAL CYCLES"
+       is tokenised into ["EARTH SCIENCE", "OCEANS", "OCEAN CHEMISTRY", "BIOGEOCHEMICAL CYCLES"].
+       Underscores are replaced with spaces before tokenisation. -->
   <fieldType name="text_keyword_processed" class="solr.TextField" positionIncrementGap="100">
     <analyzer>
-      <tokenizer class="solr.WhitespaceTokenizerFactory"/>
-      <filter class="solr.PatternReplaceFilterFactory" pattern="_" replacement=" " replace="all" />
-      <filter class="solr.PatternReplaceFilterFactory" pattern="&gt;" replacement="" replace="all" />
+      <charFilter class="solr.PatternReplaceCharFilterFactory" pattern="_" replacement=" "/>
+      <tokenizer class="solr.PatternTokenizerFactory" pattern="\s*&gt;\s*"/>
+      <filter class="solr.TrimFilterFactory"/>
       <filter class="solr.LowerCaseFilterFactory"/>
       <filter class="solr.EnglishMinimalStemFilterFactory"/>
     </analyzer>
