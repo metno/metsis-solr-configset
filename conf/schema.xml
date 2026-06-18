@@ -157,6 +157,7 @@
   <field name="storage_information_file_checksum_type" type="string" indexed="true" stored="true" required="false" multiValued="false" />
   <field name="storage_information_file_checksum" type="string" indexed="true" stored="true" required="false" multiValued="false" />
   <field name="storage_information_file_storage_expiry_date" type="pdate" indexed="true" stored="true" required="false" multiValued="false" />
+  <field name="storage_information_responsible_unit" type="string" indexed="true" stored="true" required="false" multiValued="false" />
 
   <!-- mmd/related_information
         related_information_json is the full mmd/related_information extracted as a json structure.
