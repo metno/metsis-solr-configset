@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<enumsConfig>
+    <enum name="metadata_status">
+        <value>Active</value>
+        <value>Inactive</value>
+    </enum>
+</enumsConfig>

@@ -26,8 +26,10 @@
   <!-- Store more complex shapes and points extracted from ACDD geospatial_bounds.
     If ACDD geospatial_bounds was not provided or invalid. The A polygon of the bbox
     are stored here. -->
-  <field name="geospatial_bounds" type="location_rpt_jts" indexed="true" stored="true" multiValued="false" />
 
+  <!-- DEPRECATED: This field with the JTS context are no longer used. geospatial_bounds3d are used instead. -->
+  <field name="geospatial_bounds" type="location_rpt_jts" indexed="true" stored="true" multiValued="false" />
+  <!-- This is the default geospatial_bounds field used in 4.x -->
   <field name="geospatial_bounds3d" type="geometry_rpt_geo3d" indexed="true" stored="true" multiValued="false" />
   <!-- Store the center of the geometry for proximity searches-->
   <field name="center" type="location" indexed="true" stored="true"/>
@@ -45,33 +47,34 @@
   <field name="alternate_identifier" type="string" indexed="true" stored="true" required="false" multiValued="true" />
   <field name="alternate_identifier_type" type="string" indexed="true" stored="true" required="false" multiValued="true" />
 
-  <!-- mmd/last_metadata_update -->
-  <field name="last_metadata_update_json" type="string" indexed="false" stored="true" required="false" multiValued="false" />
+  <!-- mmd/last_metadata_update
+        last_metadata_update_json is the full mmd/last_metadata_update extracted as a json structure.
+        last_metadata_created_date are the created date. i.e the first entry
+        last_metadata_updated_date are the updated date. i.e the last entry (or first if only one entry).
+  -->
+  <field name="last_metadata_update_json" type="string" indexed="false" stored="true" required="false" multiValued="false" docValues="false"/>
   <field name="last_metadata_created_date" type="pdate" indexed="true" stored="true" required="false" multiValued="false" />
   <field name="last_metadata_updated_date" type="pdate" indexed="true" stored="true" required="false" multiValued="false" />
 
-  <!-- TODO: Deprecated, will be removed in the future-->
-  <field name="last_metadata_update_datetime" type="pdate" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="last_metadata_update_type" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="last_metadata_update_note" type="string" indexed="false" stored="true" required="false" multiValued="true" />
-
   <!-- mmd/metadata_status -->
-  <field name="metadata_status" type="string" indexed="true" stored="false" docValues="true" useDocValuesAsStored="true" required="false" multiValued="false" />
+  <field name="metadata_status" type="metadata_status_enum" indexed="true" stored="true" docValues="true" required="false" multiValued="false" />
 
   <!-- mmd/metadata_source (Internal/External)-->
-  <field name="metadata_source" type="string" indexed="true" stored="true" required="false" multiValued="false" docValues="true" useDocValuesAsStored="true"/>
+  <field name="metadata_source" type="string" indexed="true" stored="false" required="false" multiValued="false" docValues="true" useDocValuesAsStored="true"/>
 
   <!-- mmd/collection -->
-  <field name="collection" type="string" indexed="true" stored="true" required="false" multiValued="true" docValues="true"/>
+  <field name="collection" type="string" indexed="true" stored="false" required="false" multiValued="true" docValues="true" useDocValuesAsStored="true"/>
 
   <!-- mmd/title -->
   <field name="title" type="string" indexed="true" stored="true" required="false" multiValued="false" />
-  <field name="title_en" type="text_en" indexed="true" stored="true" required="false" multiValued="false" />
+  <field name="title_hl" type="text_gen_sort" indexed="false" stored="true" required="false" multiValued="false" />
+  <field name="title_en" type="text_en" indexed="true" stored="false" required="false" multiValued="false" />
   <field name="title_no" type="text_nb" indexed="true" stored="true" required="false" multiValued="false" />
 
   <!-- mmd/abstract -->
   <field name="abstract" type="string" indexed="true" stored="true" required="false" multiValued="false" />
-  <field name="abstract_en" type="text_en" indexed="true" stored="true" required="false" multiValued="false" />
+  <field name="abstract_hl" type="text_gen_sort" indexed="false" stored="true" required="false" multiValued="false" />
+  <field name="abstract_en" type="text_en" indexed="true" stored="false" required="false" multiValued="false" />
   <field name="abstract_no" type="text_nb" indexed="true" stored="true" required="false" multiValued="false" />
 
   <!-- mmd/temporal_extent -->
@@ -87,108 +90,58 @@
   <!-- mmd/geographic_extent/polygon added to geopatial_bounds if provided  -->
 
   <!-- mmd/dataset_production_status -->
-  <field name="dataset_production_status" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+  <field name="dataset_production_status" type="string" indexed="true" stored="true" required="false" multiValued="false" docValues="true"/>
 
   <!-- mmd/dataset_language -->
   <field name="dataset_language" type="string" indexed="true" stored="true" required="false" multiValued="false" />
 
   <!-- mmd/operational_status -->
-  <field name="operational_status" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+  <field name="operational_status" type="string" indexed="true" stored="true" required="false" multiValued="false" docValues="true"/>
 
   <!-- mmd/access_constraint -->
   <field name="access_constraint" type="string" indexed="true" stored="true" required="false" multiValued="false" />
 
   <!-- mmd/use_constraint -->
-  <field name="use_constraint_identifier" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+  <field name="use_constraint_identifier" type="string" indexed="true" stored="true" required="false" multiValued="false" docValues="true"/>
   <field name="use_constraint_resource" type="string" indexed="true" stored="true" required="false" multiValued="false" />
   <field name="use_constraint_license_text" type="text_gen_sort" indexed="true" stored="true" required="false" multiValued="false" />
 
-  <!-- Fields used for facets. This contains concatination of the different personnel roles names and organisations -->
-  <field name="personnel_json" type="string" indexed="false" stored="true" required="false" multiValued="false" />
+  <!-- mmd/personnel
+        personnel_json are the full mmd/personnel extracted as a json structure.
+        personnel_role for facet and filter
+        personnel_name and personnel_organisation for display and highlighting.
+
+        personnel_organisation_facet and personnel_name_facet are added by the solrindexer, and are used for faceting and filtering.
+   -->
+  <field name="personnel_json" type="string" indexed="false" stored="true" required="false" multiValued="false" docValues="false"/>
   <field name="personnel_role" type="string" indexed="true" stored="true" required="false" multiValued="true" />
   <field name="personnel_name" type="text_gen_sort" indexed="true" stored="true" required="false" multiValued="true"/>
   <field name="personnel_organisation" type="text_gen_sort" indexed="true" stored="true" required="false" multiValued="true"/>
 
-  <!-- mmd/personnel ROLE: Investigator -->
-  <field name="personnel_investigator_name" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="personnel_investigator_name_uri" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="personnel_investigator_type" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="personnel_investigator_email" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="personnel_investigator_phone" type="string" indexed="false" stored="true" required="false" multiValued="true" />
-  <field name="personnel_investigator_organisation" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="personnel_investigator_organisation_uri" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-
-  <field name="personnel_investigator_address_address" type="string" indexed="false" stored="true" required="false" multiValued="true" />
-  <field name="personnel_investigator_address_city" type="string" indexed="false" stored="true" required="false" multiValued="true" />
-  <field name="personnel_investigator_address_province_or_state" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="personnel_investigator_address_postal_code" type="string" indexed="false" stored="true" required="false" multiValued="true" />
-  <field name="personnel_investigator_address_country" type="string" indexed="false" stored="true" required="false" multiValued="true" />
-
-  <!-- mmd/personnel ROLE: Technical Contact -->
-  <field name="personnel_technical_name" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="personnel_technical_name_uri" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-
-  <field name="personnel_technical_email" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="personnel_technical_phone" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="personnel_technical_type" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-
-  <field name="personnel_technical_organisation" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="personnel_technical_organisation_uri" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-
-  <field name="personnel_technical_address_address" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="personnel_technical_address_city" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="personnel_technical_address_province_or_state" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="personnel_technical_address_postal_code" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="personnel_technical_address_country" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-
-  <!-- mmd/personnel ROLE: Metadata author -->
-  <field name="personnel_metadata_author_name" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="personnel_metadata_author_name_uri" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="personnel_metadata_author_type" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-
-  <field name="personnel_metadata_author_email" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="personnel_metadata_author_phone" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="personnel_metadata_author_organisation" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="personnel_metadata_author_organisation_uri" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-
-  <field name="personnel_metadata_author_address_address" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="personnel_metadata_author_address_city" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="personnel_metadata_author_address_province_or_state" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="personnel_metadata_author_address_postal_code" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="personnel_metadata_author_address_country" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-
-
-  <!-- mmd/personnel ROLE: Datacenter    -->
-  <field name="personnel_datacenter_name" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="personnel_datacenter_name_uri" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="personnel_datacenter_email" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="personnel_datacenter_type" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-
-  <field name="personnel_datacenter_phone" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="personnel_datacenter_organisation" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="personnel_datacenter_organisation_uri" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-
-  <field name="personnel_datacenter_address_address" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="personnel_datacenter_address_city" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="personnel_datacenter_address_province_or_state" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="personnel_datacenter_address_postal_code" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="personnel_datacenter_address_country" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-
   <!-- mmd/data_center -->
-  <field name="data_center_short_name" type="text_gen_sort" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="data_center_long_name" type="text_gen_sort" indexed="true" stored="true" required="false" multiValued="true" />
-  <!-- Combined field using either short or long name depends on whats provided -->
-  <field name="data_center_name" type="string" indexed="true" stored="true" required="false" multiValued="true" docValues="true"/>
+  <field name="data_center_short_name" type="text_gen_sort" indexed="true" stored="true" required="false" multiValued="false" />
+  <field name="data_center_long_name" type="text_gen_sort" indexed="true" stored="true" required="false" multiValued="false" />
+  <!-- Combined field using either short or long name depends on whats provided. Used for faceting and filtering -->
+  <field name="data_center_name" type="string" indexed="true" stored="true" required="false" multiValued="false" docValues="true"/>
+  <field name="data_center_url" type="string" indexed="false" stored="true" required="false" multiValued="false" />
 
-  <field name="data_center_url" type="string" indexed="false" stored="true" required="false" multiValued="true" />
-
-  <!-- mmd/data_access -->
-  <!-- NOTE: The data access resources are normalized with respect to data access type. See fields
-        specified further down -->
+  <!-- mmd/data_access
+          data_access_json is the full mmd/data_access extracted as a json structure.
+          data_access_type is the type of data access url, e.g. OPeNDAP, WMS, HTTP, etc. Used for faceting and filtering.
+          data_access_wms_layers is the WMS layers if the data access type is WMS.
+  -->
+  <field name="data_access_json" type="string" indexed="false" stored="true" required="false" multiValued="false" docValues="false"/>
   <field name="data_access_type" type="string" indexed="true" stored="true" required="false" multiValued="true" docValues="true"/>
   <field name="data_access_wms_layers" type="string" indexed="true" stored="true" required="false" multiValued="true" />
 
-  <!-- mmd/related_dataset -->
+  <!-- mmd/related_dataset
+        fields used for parent/child and auxiliary dataset relations.
+           related_dataset and related_dataset_id are the metadata_identifier and solrid of the parent relation type.
+           related_dataset_relation_type is the relation type e.g. parent, child, auxiliary, etc.
+           related_dataset_auxiliary, related_dataset_auxiliary_id are the metadata_identifier and solrid of the auxiliary relation type.
+  TODO: Consider naming related_dataset to related_parent_dataset and set multiValued false.
+        Also consider removing/chaning field structure for other relation types.
+  -->
   <field name="related_dataset" type="string" indexed="true" stored="true" required="false" multiValued="true" />
   <field name="related_dataset_relation_type" type="string" indexed="true" stored="true" required="false" multiValued="true" />
   <field name="related_dataset_id" type="string" indexed="true" stored="true" required="false" multiValued="true" />
@@ -204,17 +157,23 @@
   <field name="storage_information_file_checksum_type" type="string" indexed="true" stored="true" required="false" multiValued="false" />
   <field name="storage_information_file_checksum" type="string" indexed="true" stored="true" required="false" multiValued="false" />
   <field name="storage_information_file_storage_expiry_date" type="pdate" indexed="true" stored="true" required="false" multiValued="false" />
+  <field name="storage_information_responsible_unit" type="string" indexed="true" stored="true" required="false" multiValued="false" />
 
-  <!-- mmd/related_information -->
-
-  <!-- NOTE: The related information resources are normalized with respect to related information type. See fields
-        specified further down -->
-  <field name="related_information_json" type="string" indexed="false" stored="true" required="false" multiValued="true" />
+  <!-- mmd/related_information
+        related_information_json is the full mmd/related_information extracted as a json structure.
+        related_information_type is the type of related information, e.g. observation facility, scientific publication, etc. Used for faceting and filtering.
+        related_information_resource is the url or identifier of the related information.
+        related_information_description is the description of the related information. Used for highlighting and display.
+  -->
+  <field name="related_information_json" type="string" indexed="false" stored="true" required="false" multiValued="false" docValues="false"/>
   <field name="related_information_type" type="string" indexed="true" stored="true" required="false" multiValued="true" />
   <field name="related_information_resource" type="string" indexed="true" stored="true" required="false" multiValued="true" />
   <field name="related_information_description" type="text_gen_sort" indexed="true" stored="true" required="false" multiValued="true" />
 
-  <!-- related information obeservation facility-->
+  <!-- We store the related url landing page here so we do not need to extract it from the related information json -->
+  <field name="related_url_landing_page" type="string" indexed="false" stored="true" required="false" multiValued="false" />
+
+  <!-- related information obeservation facility. used for faceting and filtering. -->
   <field name="observation_facility" type="string" indexed="true" stored="false" required="false" multiValued="true" docValues="true" useDocValuesAsStored="true"/>
 
   <!-- mmd/iso_topic_category -->
@@ -222,6 +181,7 @@
 
   <!-- mmd/keywords -->
   <field name="keywords_vocabulary" type="string" indexed="true" stored="true" required="false" multiValued="true" docValues="true"/>
+  <!-- The keywords_keyword field are used for highlighting -->
   <field name="keywords_keyword" type="text_gen_sort" indexed="true" stored="true" required="false" multiValued="true" />
 
   <!-- GCMDSK keywords -->
@@ -242,21 +202,26 @@
   <field name="keywords_northemes" type="string" indexed="true" stored="true" required="false" multiValued="true" docValues="true"/>
 
   <!-- ECV keywords https://vocab.nerc.ac.uk/collection/EXV/current/ -->
-  <field name="keywords_ecv" type="string" indexed="true" stored="true" required="false" multiValued="true" docValues="true"/>
+  <field name="keywords_exv" type="string" indexed="true" stored="true" required="false" multiValued="true" docValues="true"/>
 
   <!-- NONE keywords -->
   <field name="keywords_none" type="string" indexed="true" stored="true" required="false" multiValued="true" docValues="true"/>
 
-  <!-- mmd/project -->
+  <!-- mmd/project
+        project_short_name used for highlighting and display.
+        project_long_name used for highlighting and display.
+        project_name is the short or long name of the project. Used for highlighting and display.
+        project_name_facet is the short or long name of the project. Used for faceting and filtering. Added by the solrindexer.
+  -->
   <field name="project_short_name" type="text_gen_sort" indexed="true" stored="true" required="false" multiValued="true" />
   <field name="project_long_name" type="text_gen_sort" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="project_name" type="string" indexed="true" stored="false" required="false" multiValued="true" docValues="true" useDocValuesAsStored="true"/>
+  <field name="project_name" type="text_gen_sort" indexed="true" stored="true" required="false" multiValued="true"/>
 
   <!-- mmd/platform -->
-  <field name="platform_json" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+  <field name="platform_json" type="string" indexed="false" stored="true" required="false" multiValued="false" docValues="false"/>
   <field name="platform_short_name" type="text_gen_sort" indexed="true" stored="true" required="false" multiValued="true" />
   <field name="platform_long_name" type="text_gen_sort" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="platform_name" type="string" indexed="true" stored="true" required="false" multiValued="true" />
+  <field name="platform_name" type="text_gen_sort" indexed="true" stored="true" required="false" multiValued="true" />
 
   <field name="platform_resource" type="string" indexed="true" stored="true" required="false" multiValued="true" />
   <field name="platform_orbit_relative" type="pint" indexed="true" stored="true" required="false" multiValued="true" />
@@ -265,7 +230,7 @@
 
   <field name="platform_instrument_short_name" type="text_gen_sort" indexed="true" stored="true" required="false" multiValued="true" />
   <field name="platform_instrument_long_name" type="text_gen_sort" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="platform_instrument_name" type="string" indexed="true" stored="true" required="false" multiValued="true" />
+  <field name="platform_instrument_name" type="text_gen_sort" indexed="true" stored="true" required="false" multiValued="true" />
   <field name="platform_instrument_resource" type="string" indexed="true" stored="true" required="false" multiValued="true" />
   <field name="platform_instrument_mode" type="string" indexed="true" stored="true" required="false" multiValued="true" />
   <field name="platform_instrument_polarisation" type="string" indexed="true" stored="true" required="false" multiValued="true" />
@@ -276,23 +241,13 @@
   <field name="platform_ancillary_timeliness" type="string" indexed="true" stored="true" required="false" multiValued="true" />
 
   <!-- mmd/activity_type -->
-  <field name="activity_type" type="string" indexed="true" stored="true" required="false" multiValued="true" />
+  <field name="activity_type" type="string" indexed="true" stored="true" required="false" multiValued="true" docValues="true"/>
 
   <!-- mmd/dataset_citation -->
-  <field name="dataset_citation_author" type="text_gen_sort" indexed="true" stored="true" required="false" multiValued="true" />
+  <field name="dataset_citation_json" type="string" indexed="false" stored="true" required="false" multiValued="false" docValues="false"/>
   <field name="dataset_citation_publication_date" type="pdate" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="dataset_citation_title" type="text_gen_sort" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="dataset_citation_series" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="dataset_citation_edition" type="pint" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="dataset_citation_volume" type="pint" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="dataset_citation_issue" type="pint" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="dataset_citation_publication_place" type="text_gen_sort" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="dataset_citation_publisher" type="text_gen_sort" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="dataset_citation_pages" type="pint" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="dataset_citation_isbn" type="string" indexed="true" stored="true" required="false" multiValued="true" />
+  <field name="dataset_citation_title" type="text_en" indexed="true" stored="true" required="false" multiValued="true" />
   <field name="dataset_citation_doi" type="text_gen_sort" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="dataset_citation_url" type="string" indexed="true" stored="true" required="false" multiValued="true" />
-  <field name="dataset_citation_other" type="text_gen_sort" indexed="true" stored="true" required="false" multiValued="true" />
 
   <!-- Common fields for new and old MMD specification, specific for Drupal 8
    -->
@@ -315,12 +270,12 @@
   <field name="mmd_repo_path" type="string" indexed="false" stored="true"/>
 
   <!-- The mmd xml file -->
-  <field name="mmd_xml_file" type="string" indexed="false" stored="true"/>
+  <field name="mmd_xml_file" type="string" indexed="false" stored="true" docValues="false"/>
   <!-- Catch field for urls -->
   <field name="urls" type="url" indexed="true" stored="false" multiValued="true" />
 
   <!--DateRangeField for faceting between start and end dates -->
-  <field name="temporal_extent_period_dr" type="date_range" indexed="true" stored="true" multiValued="true"/>
+  <field name="temporal_extent_period_dr" type="date_ranges" indexed="true" stored="true" multiValued="true"/>
 
   <!-- Normalized data access_resources based on data access type alo normalised related information -->
   <field name="data_access_url_opendap" type="string" indexed="true" stored="true" multiValued="true"/>
@@ -330,49 +285,15 @@
   <field name="data_access_url_http" type="string" indexed="true" stored="true" multiValued="true"/>
   <field name="data_access_url_odata" type="string" indexed="true" stored="true" multiValued="true"/>
   <field name="data_access_url_ftp" type="string" indexed="true" stored="true" multiValued="true"/>
-  <field name="related_url_landing_page" type="string" indexed="false" stored="true" multiValued="true"/>
-  <field name="related_url_user_guide" type="string" indexed="false" stored="true" multiValued="true"/>
-  <field name="related_url_home_page" type="string" indexed="false" stored="true" multiValued="true"/>
-  <field name="related_url_obs_facility" type="string" indexed="true" stored="true" multiValued="true"/>
-  <field name="related_url_ext_metadata" type="string" indexed="false" stored="true" multiValued="true"/>
-  <field name="related_url_scientific_publication" type="string" indexed="false" stored="true" multiValued="true"/>
-  <field name="related_url_data_paper" type="string" indexed="false" stored="true" multiValued="true"/>
-  <field name="related_url_data_management_plan" type="string" indexed="false" stored="true" multiValued="true"/>
-  <field name="related_url_other_documentation" type="string" indexed="false" stored="true" multiValued="true"/>
-  <field name="related_url_software" type="string" indexed="false" stored="true" multiValued="true"/>
-  <field name="related_url_data_server_landing_page" type="string" indexed="false" stored="true" multiValued="true"/>
-
-
-  <!-- Process description for data access urls -->
-  <field name="data_access_url_opendap_desc" type="string" indexed="false" stored="true" multiValued="true"/>
-  <field name="data_access_url_ogc_wms_desc" type="string" indexed="false" stored="true" multiValued="true"/>
-  <field name="data_access_url_ogc_wfs_desc" type="string" indexed="false" stored="true" multiValued="true"/>
-  <field name="data_access_url_ogc_wcs_desc" type="string" indexed="false" stored="true" multiValued="true"/>
-  <field name="data_access_url_http_desc" type="string" indexed="false" stored="true" multiValued="true"/>
-  <field name="data_access_url_odata_desc" type="string" indexed="false" stored="true" multiValued="true"/>
-  <field name="data_access_url_ftp_desc" type="string" indexed="false" stored="true" multiValued="true"/>
-  <field name="related_url_landing_page_desc" type="string" indexed="false" stored="true" multiValued="true"/>
-  <field name="related_url_user_guide_desc" type="string" indexed="false" stored="true" multiValued="true"/>
-  <field name="related_url_home_page_desc" type="string" indexed="false" stored="true" multiValued="true"/>
-  <field name="related_url_obs_facility_desc" type="text_gen_sort" indexed="true" stored="true" multiValued="true"/>
-  <field name="related_url_ext_metadata_desc" type="string" indexed="false" stored="true" multiValued="true"/>
-  <field name="related_url_scientific_publication_desc" type="string" indexed="false" stored="true" multiValued="true"/>
-  <field name="related_url_data_paper_desc" type="string" indexed="false" stored="true" multiValued="true"/>
-  <field name="related_url_data_management_plan_desc" type="string" indexed="false" stored="true" multiValued="true"/>
-  <field name="related_url_other_documentation_desc" type="string" indexed="false" stored="true" multiValued="true"/>
-  <field name="related_url_software_desc" type="string" indexed="false" stored="true" multiValued="true"/>
-  <field name="related_url_data_server_landing_page_desc" type="string" indexed="false" stored="true" multiValued="true"/>
 
   <!-- Thumbnail specific fields -->
   <field name="thumbnail" type="binary" indexed="false" stored="true" required="false" multiValued="false" />
   <field name="thumbnail_data" type="binary" indexed="false" stored="true" required="false" multiValued="false" />
   <field name="thumbnail_url" type="string" indexed="false" stored="true" required="false" multiValued="false" />
   <field name="feature_type" type="string" indexed="true" stored="true" required="false" multiValued="false" />
-  <!-- Internal dataset level: Level-1 or Level-2 -->
-  <field name="dataset_type" type="string" indexed="true" stored="true" required="false" multiValued="false" />
 
   <!-- Aggregated field for full text searches. Using Drupal Search api text_und -->
-  <field name="full_text" type="text_und" indexed="true" stored="false" required="false" multiValued="true" />
+  <field name="full_text" type="text_en" indexed="true" stored="false" required="false" multiValued="true" />
 
   <!-- Boolean set to true for datasets which are parent datasets -->
   <field name="isParent" type="boolean" stored="true" />
@@ -389,11 +310,25 @@
   <!-- Quality control  -->
   <field name="quality_control" type="string" indexed="true" stored="true" multiValued="false"/>
 
+
   <!-- dummy field -->
-  <field name="text" type="string" indexed="true" stored="true" />
+  <field name="text" type="string" indexed="false" stored="false" />
+
+  <!-- Descriptions is a catch all field for any description fields in the MMD.
+        Used for highlighting and display.
+        Added by the solrindexer.
+  -->
+  <field name="descriptions" type="text_gen_sort" indexed="false" stored="true" multiValued="true"/>
+
+  <!-- Resources field
+      Catch all resource urls and identifeiers.
+      Added by the solrindexer.
+      Not stored or indexed, copied to urls, full_text and match_exact for search and faceting.
+    -->
+  <field name="resources" type="text_gen_sort" indexed="false" stored="true" multiValued="true"/>
 
   <!-- NBS Specific fields -->
-  <field name="platform_sentinel" type="string" indexed="true" stored="true" />
+  <field name="platform_sentinel" type="string" indexed="true" stored="true" multiValued="true"/>
   <field name="sentinel_tile" type="string" indexed="true" stored="true" />
   <field name="sentinel_mid" type="string" indexed="true" stored="true" />
 
@@ -406,14 +341,10 @@
   <copyField source="alternate_identifier" dest="full_text" />
   <copyField source="activity_type" dest="full_text" />
   <copyField source="access_constraint" dest="full_text" />
-  <copyField source="abstract" dest="full_text" />
+  <copyField source="abstract_en" dest="full_text" />
   <copyField source="data_center_long_name" dest="full_text" />
   <copyField source="data_center_short_name" dest="full_text" />
-  <copyField source="dataset_citation_author" dest="full_text" />
   <copyField source="dataset_citation_doi" dest="full_text" />
-  <copyField source="dataset_citation_isbn" dest="full_text" />
-  <copyField source="dataset_citation_other" dest="full_text" />
-  <copyField source="dataset_citation_publisher" dest="full_text" />
   <copyField source="dataset_citation_title" dest="full_text" />
   <copyField source="iso_topic_category" dest="full_text" />
   <copyField source="keywords_keyword" dest="full_text" />
@@ -422,12 +353,28 @@
   <copyField source="personnel_role" dest="full_text" />
   <copyField source="platform_instrument_long_name" dest="full_text" />
   <copyField source="platform_instrument_short_name" dest="full_text" />
+  <copyField source="platform_instrument_mode" dest="full_text" />
+  <copyField source="platform_instrument_polarisation" dest="full_text" />
+  <copyField source="platform_instrument_product_type" dest="full_text" />
+  <copyField source="platform_ancillary_timeliness" dest="full_text" />
+  <copyField source="platform_orbit_direction" dest="full_text" />
   <copyField source="platform_long_name" dest="full_text" />
   <copyField source="platform_short_name" dest="full_text" />
   <copyField source="project_long_name" dest="full_text" />
   <copyField source="project_short_name" dest="full_text" />
-  <copyField source="title" dest="full_text" />
-  <copyField source="*_desc" dest="full_text" />
+  <copyField source="storage_information_file_name" dest="full_text" />
+  <copyField source="storage_information_file_format" dest="full_text" />
+  <copyField source="related_dataset" dest="full_text"/>
+  <copyField source="title_hl" dest="full_text" />
+  <copyField source="descriptions" dest="full_text" />
+  <copyField source="resources" dest="full_text" />
+  <copyField source="use_constraint_license_text" dest="full_text" />
+  <copyField source="use_constraint_identifier" dest="full_text" />
+  <copyField source="operational_status" dest="full_text" />
+  <copyField source="quality_control" dest="full_text" />
+  <copyField source="spatial_representation" dest="full_text" />
+
+
 
   <!-- Copy fields for exact match search. No stemming/tokenizing-->
   <copyField source="metadata_identifier" dest="match_exact" />
@@ -435,9 +382,7 @@
   <copyField source="activity_type" dest="match_exact" />
   <copyField source="data_center_long_name" dest="match_exact" />
   <copyField source="data_center_short_name" dest="match_exact" />
-  <copyField source="dataset_citation_author" dest="match_exact" />
   <copyField source="dataset_citation_doi" dest="match_exact"/>
-  <copyField source="dataset_citation_publisher" dest="match_exact" />
   <copyField source="dataset_citation_title" dest="match_exact" />
   <copyField source="iso_topic_category" dest="match_exact" />
   <copyField source="keywords_keyword" dest="match_exact" />
@@ -446,12 +391,29 @@
   <copyField source="personnel_organisation" dest="match_exact" />
   <copyField source="platform_instrument_long_name" dest="match_exact" />
   <copyField source="platform_instrument_short_name" dest="match_exact" />
+  <copyField source="platform_instrument_mode" dest="match_exact" />
+  <copyField source="platform_instrument_polarisation" dest="match_exact" />
+  <copyField source="platform_instrument_product_type" dest="match_exact" />
+  <copyField source="platform_ancillary_timeliness" dest="match_exact" />
+  <copyField source="platform_orbit_direction" dest="match_exact" />
+  <copyField source="platform_orbit_relative" dest="match_exact" />
+  <copyField source="platform_orbit_absolute" dest="match_exact" />
+  <copyField source="storage_information_file_name" dest="match_exact" />
+  <copyField source="storage_information_file_format" dest="match_exact" />
   <copyField source="platform_long_name" dest="match_exact" />
   <copyField source="platform_short_name" dest="match_exact" />
   <copyField source="project_long_name" dest="match_exact" />
   <copyField source="project_short_name" dest="match_exact" />
   <copyField source="related_dataset" dest="match_exact" />
   <copyField source="title" dest="match_exact" />
+  <copyField source="descriptions" dest="match_exact" />
+  <copyField source="resources" dest="match_exact" />
+  <copyField source="use_constraint_identifier" dest="match_exact" />
+  <copyField source="operational_status" dest="match_exact" />
+  <copyField source="quality_control" dest="match_exact" />
+  <copyField source="spatial_representation" dest="match_exact" />
+  <copyField source="keywords_cfstdn" dest="match_exact" />
+
 
   <!-- Copy fields for stemmed keyword searches -->
   <copyField source="keywords_gcmd" dest="text_keywords_stemmed" />
@@ -462,7 +424,7 @@
   <copyField source="keywords_cfstdn" dest="text_keywords_stemmed" />
   <copyField source="keywords_gemet" dest="text_keywords_stemmed" />
   <copyField source="keywords_northemes" dest="text_keywords_stemmed" />
-  <copyField source="keywords_ecv" dest="text_keywords_stemmed" />
+  <copyField source="keywords_exv" dest="text_keywords_stemmed" />
   <copyField source="keywords_none" dest="text_keywords_stemmed" />
 
   <!-- Copy fields for suggester-->
@@ -477,15 +439,16 @@
   <copyField source="iso_topic_category" dest="text_suggester" />
   <copyField source="data_center_long_name" dest="text_suggester" />
   <copyField source="data_center_short_name" dest="text_suggester" />
-  <copyField source="dataset_citation_publisher" dest="text_suggester" />
-  <copyField source="dataset_citation_author" dest="text_suggester" />
-  <copyField source="dataset_citation_title" dest="text_suggester" />
-  <copyField source="dataset_citation_doi" dest="text_suggester"/>
+  <copyField source="metadata_identifier" dest="text_suggester" />
+  <copyField source="alternate_identifier" dest="text_suggester" />
+  <copyField source="activity_type" dest="text_suggester" />
   <copyField source="keywords_keyword" dest="text_suggester" />
   <copyField source="title" dest="text_suggester" />
+  <copyField source="descriptions" dest="text_suggester" />
+
 
   <!-- Urls copyfield-->
-  <copyField source="*_resource" dest="urls" />
+  <copyField source="resources" dest="urls" />
   <copyField source="*_url" dest="urls" />
   <copyField source="*_uri" dest="urls" />
 
@@ -494,15 +457,17 @@
   <dynamicField name="random_*" type="random"/>
   <dynamicField name="ignored_*" type="ignored"/>
 
-  <dynamicField name="*_facet" type="strings" indexed="true" stored="true" docValues="true"/>
+  <!-- Dynamic field optimised for facetting. Fields of this type have to be added by the solr-indexer
+       to  be compatible with atomic-updates -->
+  <dynamicField name="*_facet" type="strings" indexed="true" stored="false" docValues="true"/>
 
-  <!-- Field types from Solr _default schema-->
+  <!-- Enum type for metadata_status -->
+  <fieldType name="metadata_status_enum" class="solr.EnumFieldType" enumsConfig="enumsConfig.xml" enumName="metadata_status"/>
 
 
   <!-- Custom METSIS fieldTypes -->
   <fieldType name="match_exact" class="solr.TextField" positionIncrementGap="100">
     <analyzer type="index">
-      <filter class="solr.PatternReplaceFilterFactory" pattern="(https?://)?doi\.org/" replacement="" />
       <tokenizer class="solr.KeywordTokenizerFactory"/>
       <filter class="solr.LowerCaseFilterFactory"/>
       <filter class="solr.TrimFilterFactory"/>
@@ -531,10 +496,8 @@
     </analyzer>
   </fieldType>
 
-  <!-- A date range field -->
-  <fieldType name="date_range" class="solr.DateRangeField"/>
-  <fieldType name="date_ranges" class="solr.DateRangeField" multiValued="true"/>
 
+  <!-- Field types from Solr _default schema-->
 
   <!-- A general text field that has reasonable, generic
          cross-language defaults: it tokenizes with StandardTokenizer,
@@ -560,21 +523,6 @@
     </analyzer>
   </fieldType>
 
-
-  <fieldType name="text_hl" class="solr.TextField" positionIncrementGap="100" multiValued="true">
-    <analyzer type="index">
-      <tokenizer class="solr.KeywordTokenizerFactory"/>
-      <filter class="solr.StopFilterFactory" words="stopwords.txt" ignoreCase="true"/>
-      <filter class="solr.LowerCaseFilterFactory"/>
-    </analyzer>
-    <analyzer type="query">
-      <tokenizer class="solr.KeywordTokenizerFactory"/>
-      <filter class="solr.StopFilterFactory" words="stopwords.txt" ignoreCase="true"/>
-      <filter class="solr.SynonymGraphFilterFactory" expand="true" ignoreCase="true" synonyms="synonyms.txt"/>
-      <filter class="solr.LowerCaseFilterFactory"/>
-    </analyzer>
-  </fieldType>
-
   <!-- SortableTextField generaly functions exactly like TextField,
          except that it supports, and by default uses, docValues for sorting (or faceting)
          on the first 1024 characters of the original field values (which is configurable).
@@ -583,8 +531,6 @@
          is that it takes up more space on disk; which is why it's not used in place of TextField
          for every fieldType in this _default schema.
     -->
-  <dynamicField name="*_t_sort" type="text_gen_sort" indexed="true" stored="true" multiValued="false"/>
-  <dynamicField name="*_txt_sort" type="text_gen_sort" indexed="true" stored="true"/>
   <fieldType name="text_gen_sort" class="solr.SortableTextField" positionIncrementGap="100" multiValued="true" storeOffsetsWithPositions="true" termVectors="true">
     <analyzer type="index">
       <tokenizer name="standard"/>
@@ -623,7 +569,6 @@
          cases will work, for example query "wi fi" will match
          document "WiFi" or "wi-fi".
     -->
-  <dynamicField name="*_txt_en_split" type="text_en_splitting" indexed="true" stored="true"/>
   <fieldType name="text_en_splitting" class="solr.TextField" positionIncrementGap="100" autoGeneratePhraseQueries="true">
     <analyzer type="index">
       <tokenizer name="whitespace"/>
@@ -652,7 +597,6 @@
 
   <!-- Less flexible matching, but less false matches.  Probably not ideal for product names,
          but may be good for SKUs.  Can insert dashes in the wrong place and still match. -->
-  <dynamicField name="*_txt_en_split_tight" type="text_en_splitting_tight" indexed="true" stored="true"/>
   <fieldType name="text_en_splitting_tight" class="solr.TextField" positionIncrementGap="100" autoGeneratePhraseQueries="true">
     <analyzer type="index">
       <tokenizer name="whitespace"/>
@@ -715,6 +659,10 @@
 
   <!--Binary data type. The data should be sent/retrieved in as Base64 encoded Strings -->
   <fieldType name="binary" class="solr.BinaryField"/>
+
+  <!-- Date range field type-->
+  <fieldType name="date_range" class="solr.DateRangeField"/>
+  <fieldType name="date_ranges" class="solr.DateRangeField" multiValued="true"/>
 
   <!--
     RankFields can be used to store scoring factors to improve document ranking. They should be used
@@ -785,12 +733,35 @@
   </fieldType>
 
   <!-- FieldType for keywords stemming -->
+  <!-- Splits GCMD-style keywords on '>' boundaries, e.g.
+       "EARTH SCIENCE > OCEANS > OCEAN CHEMISTRY > BIOGEOCHEMICAL CYCLES"
+       is tokenised into ["EARTH SCIENCE", "OCEANS", "OCEAN CHEMISTRY", "BIOGEOCHEMICAL CYCLES"].
+       Underscores are replaced with spaces before tokenisation. -->
   <fieldType name="text_keyword_processed" class="solr.TextField" positionIncrementGap="100">
     <analyzer>
-      <tokenizer class="solr.WhitespaceTokenizerFactory"/>
-      <filter class="solr.PatternReplaceFilterFactory" pattern="_" replacement=" " replace="all" />
-      <filter class="solr.PatternReplaceFilterFactory" pattern="&gt;" replacement="" replace="all" />
+      <charFilter class="solr.PatternReplaceCharFilterFactory" pattern="_" replacement=" "/>
+      <tokenizer class="solr.PatternTokenizerFactory" pattern="\s*&gt;\s*"/>
+      <filter class="solr.TrimFilterFactory"/>
       <filter class="solr.LowerCaseFilterFactory"/>
+      <filter class="solr.EnglishMinimalStemFilterFactory"/>
+    </analyzer>
+  </fieldType>
+
+
+  <fieldType name="text_keywords" class="solr.TextField" positionIncrementGap="100" storeOffsetsWithPositions="true">
+    <analyzer type="index">
+      <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+      <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms.txt" expand="false" ignoreCase="true"/>
+      <filter class="solr.WordDelimiterGraphFilterFactory" generateWordParts="1" generateNumberParts="1" catenateWords="1" catenateNumbers="1" catenateAll="0" splitOnCaseChange="1" preserveOriginal="1"/>
+      <filter class="solr.EnglishMinimalStemFilterFactory"/>
+      <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+    </analyzer>
+    <analyzer type="query">
+      <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+      <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms.txt" expand="true" ignoreCase="true"/>
+      <filter class="solr.WordDelimiterGraphFilterFactory" generateWordParts="1" generateNumberParts="1" catenateWords="1" catenateNumbers="1" catenateAll="0" splitOnCaseChange="1" preserveOriginal="1"/>
       <filter class="solr.EnglishMinimalStemFilterFactory"/>
     </analyzer>
   </fieldType>

@@ -24,244 +24,277 @@ Television, Televisions, TV, TVs
 #notice we use "gib" instead of "GiB" so any WordDelimiterGraphFilter coming
 #after us won't split it into two words.
 
-# Synonym mappings can be used for spelling correction too
-pixima => pixma
-satellite, sattelite => Space Borne Instrument
-gcmdsk, gcmd science keywords
-gcmdloc, gcmd locations
-gcmdprov, gcmd providers
-gcmdplt, gcmd platforms
-gcmdinst, gcmd instruments
-cfstdn, cf standard names
-gemet, inspire themes
-northemes, geonorge themes
-cc0-1.0, creative commons zero v1.0 universal, cc0 1.0
-cc-by-3.0, creative commons attribution 3.0 unported, cc by 3.0
-cc-by-4.0, attribution, navngivelse, cc by 4.0, creative commons attribution 4.0 international
-cc-by-sa-4.0, navngivelse-delpåsammevilkår, attribution-sharealike, cc by-sa 4.0, creative commons attribution share alike 4.0 international
-cc-by-nc-4.0, navngivelse-ikkekommersiell, cc by-nc 4.0, creative commons attribution non commercial 4.0 international, attribution-noncommercial
-cc-by-nc-sa-4.0, navngivelse-ikkekommersiell-delpåsammevilkår, attribution-noncommercial-sharealike, cc by-nc-sa 4.0, creative commons attribution non commercial share alike 4.0 international
-cc-by-nd-4.0, cc by-nd 4.0, attribution-noderivs, creative commons attribution no derivatives 4.0 international, navngivelse-ingenbearbeidelse
-cc-by-nc-nd-4.0, creative commons attribution non commercial no derivatives 4.0 international, attribution-noncommercial-noderivs, navngivelse-ikkekommersiell-ingenbearbeidelser, cc by-nc-nd 4.0
-space borne instrument, earth observation satellite
-in situ land-based station, land station
-in situ ship-based station, cruise
-in situ ocean fixed station, moored instrument
-in situ ocean moving station, float
-in situ ice-based station, ice station
-interview/questionnaire, questionnaire, interview
-maps/charts/photographs, maps, charts, photographs
-inlandwaters, inland waters
-intelligencemilitary, intelligence/military
-climatologymeteorologyatmosphere, climatology/meteorology/atmosphere
-utilitiescommunications, utilities/communications
-farming
-imagerybasemapsearthcover, imagery/base maps/earth cover
-structure
-health
-elevation
-society
-environment
-extraterrestrial, extra terrestrial
-biota
-disaster
-transportation
-geoscientificinformation, geoscientific information
-oceans
-economy
-planningcadastre, planning cadastre
-location
-boundaries
-open, unrestricted, free
-arctic, central arctic
-sentinel-1a
-sentinel-1b
-sentinel-2a
-sentinel-2b
-sentinel-3a
-sentinel-3b
-metop-a, meteorological operational satellite - a
-metop-b, meteorological operational satellite - b
-metop-c, meteorological operational satellite - c
-noaa-15, national oceanic and atmospheric administration - 15
-noaa-18, national oceanic and atmospheric administration - 18
-noaa-19, national oceanic and atmospheric administration - 19
-noaa-20, national oceanic and atmospheric administration - 20
-noaa-21, national oceanic and atmospheric administration - 21
-snpp, suomi national polar-orbiting partnership
-aqua, earth observation system - aqua
-terra, earth observation system - terra
-fy-3d, feng-yun 3d
-fy-3e, feng-yun 3e
-gcom-w1, global change observation mission 1st-water
-envisat, environmental satellite
-sentinel-1c
-sentinel-1d
-sentinel-2c
-sentinel-2d
-sentinel-3c
-sentinel-3d
-sentinel-6a
-sentinel-6b
-sentinel-6c
-sentinel-5p, sentinel-5 precursor
-sar-c, synthetic aperture radar (c-band), c-sar
-msi, multi-spectral imager for sentinel-2
-olci, ocean and land colour imager
-slstr, sea and land surface temperature radiometer
-mwr, micro-wave radiometer
-viirs, visible/infrared imager radiometer suite
-ssm/i, special sensor microwave - imager
-avhrr, advanced very high resolution radiometer
-avhrr/3, advanced very high resolution radiometer / 3
-mersi-2, medium resolution spectral imager -2
-modis, moderate-resolution imaging spectro-radiometer
-amsr2, advanced microwave scanning radiometer 2
-asar, advanced synthetic aperature radar
-sral, synthetic aperture radar altimeter
-tropomi, tropospheric monitoring instrument
-poseidon-4, poseidon-4 radar altimeter
-nmap, norwegian satellite earth observation database for marine and polar research
-adc, arctic data centre
-gcw, global cryosphere watch
-nmdc, norwegian marine data centre
-sios, svalbard integrated arctic earth observing system
-nsdn, norwegian scientific data network
-dam, damocles
-access
-nbs, nasjonalt bakkesegment for satellittdata
-appl, applicate
-yopp, year of polar prediction
-metncs, met norway core services
-sess2018, state of environmental science in svalbard 2018
-sess2019, state of environmental science in svalbard 2019
-sess2020, state of environmental science in svalbard 2020
-sess2022, state of environmental science in svalbard 2022
-sess2023, state of environmental science in svalbard 2023
-sess2024, state of environmental science in svalbard 2024
-sess2025, state of environmental science in svalbard 2025
-sioscd, sios core data
-siosap, sios access programme
-siosin, sios infranor
-cvl, cryosphere virtual lab
-aen, arven etter nansen
-tone, troll observing network
-nysmac, ny-ålesund science managers committee
-kss, klimaservicesenter
-geonor, geonorge
-polarin
-slc, single look complex
-grd, ground range detected
-ocn, ocean
-s2msi1c, sentinel-2 msi level-1c
-msi-l1c, sentinel-2 msi level-1c
-s2msi2a, sentinel-2 msi level-2a
-msi-l2a, sentinel-2 msi level-2a
-sar-wv-l1-slc, wave level-1 single look complex
-sar-wv-l2-ocn, wave level-2 ocean
-sar-sm1-l1-grdh, stripmap (sm) beam 1 level-1 ground range detected high resolution
-sar-sm1-l1-slc, stripmap (sm) beam 1 level-1 single look complex
-sar-sm1-l0-raw, stripmap (sm) beam 1 level-0 raw
-sar-sm2-l1-grdh, stripmap (sm) beam 2 level-1 ground range detected high resolution
-sar-sm2-l1-slc, stripmap (sm) beam 2 level-1 single look complex
-sar-sm2-l0-raw, stripmap (sm) beam 2 level-0 raw
-sar-sm3-l1-grdh, stripmap (sm) beam 3 level-1 ground range detected high resolution
-sar-sm3-l1-slc, stripmap (sm) beam 3 level-1 single look complex
-sar-sm3-l0-raw, stripmap (sm) beam 3 level-0 raw
-sar-sm4-l1-grdh, stripmap (sm) beam 4 level-1 ground range detected high resolution
-sar-sm4-l1-slc, stripmap (sm) beam 4 level-1 single look complex
-sar-sm4-l0-raw, stripmap (sm) beam 4 level-0 raw
-sar-sm5-l1-grdh, stripmap (sm) beam 5 level-1 ground range detected high resolution
-sar-sm5-l1-slc, stripmap (sm) beam 5 level-1 single look complex
-sar-sm5-l0-raw, stripmap (sm) beam 5 level-0 raw
-sar-sm6-l1-grdh, stripmap (sm) beam 6 level-1 ground range detected high resolution
-sar-sm6-l1-slc, stripmap (sm) beam 6 level-1 single look complex
-sar-sm6-l0-raw, stripmap (sm) beam 6 level-0 raw
-sar-ew-l1-grdm, extra wide swath level-1 ground range detected medium resolution
-sar-ew-l1-grdh, extra wide swath level-1 ground range detected high resolution
-sar-ew-l1-slc, extra wide swath level-1 single look complex
-sar-ew-l2-ocn, extra wide swath level-2 ocean
-sar-ew-l0-raw, extra wide swath level-0 raw
-sar-iw-l1-grdm, interferometric wide swath level-1 ground range detected medium resolution
-sar-iw-l1-grdh, interferometric wide swath level-1 ground range detected high resolution
-sar-iw-l1-slc, interferometric wide swath level-1 single look complex
-sar-iw-l2-ocn, interferometric wide swath level-2 ocean
-sar-iw-l0-raw, interferometric wide swath level-0 raw
-ol-l1-efr, ocean and land colour instrument (olci) level-1 full resolution top of atmosphere reflectance
-ol-l1-err, ocean and land colour instrument (olci) level-1 reduced resolution top of atmosphere reflectance
-sl-l1-rbt, sea and land surface temperature radiometer (slstr) level-1 radiances and brightness temperatures
-sr-l1a-sra, synthetic aperture radar altimeter (sral) level-1a (sra-a)
-sr-l1b-sra, synthetic aperture radar altimeter (sral) level-1b
-sr-l1b-sra-s, synthetic aperture radar altimeter (sral) level-1b stack data
-ol-l2-wfr, ocean and land colour instrument (olci) level-2 water and atmosphere full resolution
-ol-l2-wrr, ocean and land colour instrument (olci) level-2 water and atmosphere reduced resolution
-ol-l2-lfr, ocean and land colour instrument (olci) level-2 land and atmosphere full resolution
-ol-l2-lrr, ocean and land colour instrument (olci) level-2 land and atmosphere reduced resolution
-sr-l2-wat, synthetic aperture radar altimeter (sral) level-2 marine data
-sr-l2-lan, synthetic aperture radar altimeter (sral) level-2 land data
-sr-l2-lan-hy, synthetic aperture radar altimeter (sral) level-2 hydrology
-sr-l2-lan-si, synthetic aperture radar altimeter (sral) level-2 sea ice
-sr-l2-lan-li, synthetic aperture radar altimeter (sral) level-2 land ice
-sl-l2-wst, sea and land surface temperature radiometer (slstr) level-2 sea surface temperature
-sl-l2-frp, sea and land surface temperature radiometer (slstr) level-2 fire radiative power
-sl-l2-aod, sea and land surface temperature radiometer (slstr) level-2 aerosol optical depth
-sl-l2-lst, sea and land surface temperature radiometer (slstr) level-2 land surface temperature
-sy-l2-syn, synergy level-2 synoptic product
-sy-l2-vgp, synergy level-2 vegetation parameters
-sy-l2-aod, synergy level-2 aerosol optical depth
-sy-l2-vg10, synergy level-2 10 day synthesis surface reflectance and ndvi
-sy-l2-vg1, synergy level-2 1 day synthesis surface reflectance and ndvi
-tr-l1b-ir-sir, infrared sounder level-1b shortwave infrared
-tr-l1b-ir-uvn, infrared sounder level-1b ultraviolet-visible-near infrared
-tr-l1b-ra-bd1, radar altimeter level-1b band 1
-tr-l1b-ra-bd2, radar altimeter level-1b band 2
-tr-l1b-ra-bd3, radar altimeter level-1b band 3
-tr-l1b-ra-bd4, radar altimeter level-1b band 4
-tr-l1b-ra-bd5, radar altimeter level-1b band 5
-tr-l1b-ra-bd6, radar altimeter level-1b band 6
-tr-l1b-ra-bd7, radar altimeter level-1b band 7
-tr-l1b-ra-bd8, radar altimeter level-1b band 8
-tr-l2-aer-ai, level-2 aerosol index
-tr-l2-aer-lh, level-2 layer height (mid-level pressure)
-tr-l2-cloud, level-2 cloud properties
-tr-l2-co, level-2 carbon monoxide total column
-tr-l2-no2, level-2 nitrogen dioxide total column
-tr-l2-so2, level-2 sulphor dioxide total column
-tr-l2-ch4, level-2 methane total column
-tr-l2-hcho, level-2 formaldehyde total column
-tr-l2-o3, level-2 ozone total column
-tr-l2-o3-tcl, level-2 ozone tropospheric column
-tr-l2-o3-pr, level-2 ozone profile
-tr-l2-np-bd3, level-2 neural network probability product band 3
-tr-l2-np-bd6, level-2 neural network probability product band 6
-tr-l2-np-bd7, level-2 neural network probability product band 7
-norwegian meteorological institute, met norway, met
-norwegian water resources and energy directorate, nve
-norwegian institute for water research, niva
-norwegian institute for air research, nilu
-norwegian institute for nature research, nina
-university centre in svalbard, unis
-university of oslo, uio
-university of bergen, uib
-uit the arctic university of norway, universitetet i tromsø - noregs arktiske universitet, universitetet i tromsø - the arctic university of norway, university of tromsø - the arctic university of norway, uit
-norwegian university of science and technology, ntnu
-the university of melbourne, university of melbourne, melbourne university
-the university of tokyo, ut
-university of silesia in katowice, university of silesia
-scottish association for marine science, sams
-norwegian polar institute, np, npi
-norwegian institute of marine research, imr
-norce norwegian research centre, norce, norce norwegian research centre as, norwegian research centre
-nansen environmental and remote sensing center, stiftelsen nansen senter for miljø og fjernmåling, nansen center, nersc
-greenland ecosystem monitoring, gem
-finnish meteorological institute, fmi
-danish meteorological institute, national danish meteorological institute, dmi, the national danish meteorological institute
-chalmers university of technology, chalmers
-environment and climate change canada, eccc
-barcelona supercomputing center, bsc
-alfred wegener institute for polar and marine research, awi
-european centre for medium-range weather forecasts, ecmwf
-deutscher wetterdienst, german meteorological service, dwd
-ifremer, french research institute for exploitation of the sea
-institute of oceanology polish academy of sciences, institute of oceanology pan, io pan
-norwegian centre for climate services, ncss, kss
+# Match space borne instrument with potensial misspelling
+satellite,satelite,sattelite,Space Borne Instrument
+
+
+# English / American
+organisation,organization
+institution,organisation
+
+## From generate_synonyms
+# Group: Access Constraint
+Open, Free, Unrestricted
+
+# Group: Activity Type
+In Situ Ice-based station, Ice station
+In Situ Land-based station, Land station
+In Situ Ocean fixed station, Moored instrument
+In Situ Ocean moving station, Float
+In Situ Ship-based station, Cruise
+Interview/Questionnaire, Interview, Questionnaire
+Maps/Charts/Photographs, Maps, Charts, Photographs
+Space Borne Instrument, Earth Observation Satellite
+
+# Group: Collection Keywords
+ADC, Arctic Data Centre
+AeN, Arven etter Nansen
+APPL, APPLICATE
+CVL, Cryosphere Virtual Lab
+DAM, DAMOCLES
+GCW, Global Cryosphere Watch
+GEONOR, Geonorge
+KSS, KlimaServiceSenter
+METNCS, MET Norway Core Services
+NBS, Nasjonalt Bakkesegment for Satellittdata
+NMAP, Norwegian Satellite Earth Observation Database for Marine and Polar Research
+NMDC, Norwegian Marine Data Centre
+NSDN, Norwegian Scientific Data Network
+NySMAC, Ny-Ålesund Research Station
+SESS2018, State of Environmental Science in Svalbard 2018
+SESS2019, State of Environmental Science in Svalbard 2019
+SESS2020, State of Environmental Science in Svalbard 2020
+SESS2022, State of Environmental Science in Svalbard 2022
+SESS2023, State of Environmental Science in Svalbard 2023
+SESS2024, State of Environmental Science in Svalbard 2024
+SESS2025, State of Environmental Science in Svalbard 2025
+SIOS, Svalbard Integrated Arctic Earth Observing System
+SIOSAP, SIOS Access Programme
+SIOSCD, SIOS Core Data
+SIOSIN, SIOS InfraNor
+TONE, Troll Observing Network
+YOPP, Year Of Polar Prediction
+
+# Group: Contact Roles
+# (no synonym expansions with >=2 labels)
+
+# Group: Contact Types
+# (no synonym expansions with >=2 labels)
+
+# Group: Data Access Types
+# (no synonym expansions with >=2 labels)
+
+# Group: Dataset Production Status
+# (no synonym expansions with >=2 labels)
+
+# Group: Geographical Areas
+Arctic, Central Arctic
+
+# Group: Instrument
+AMSR2, Advanced Microwave Scanning Radiometer 2
+ASAR, Advanced Synthetic Aperature Radar
+AVHRR, Advanced Very High Resolution Radiometer
+AVHRR/3, Advanced Very High Resolution Radiometer / 3
+MERSI-2, Medium Resolution Spectral Imager -2
+MODIS, Moderate-resolution Imaging Spectro-radiometer
+MSI, Multi-Spectral Imager for Sentinel-2
+MWR, Micro-Wave Radiometer
+OLCI, Ocean and Land Colour Imager
+Poseidon-4, Poseidon-4 Radar Altimeter
+SAR-C, Synthetic Aperture Radar (C-band), C-SAR
+SLSTR, Sea and Land Surface Temperature Radiometer
+SRAL, Synthetic Aperture Radar Altimeter
+SSM/I, Special Sensor Microwave - Imager
+TROPOMI, Tropospheric Monitoring Instrument
+VIIRS, Visible/Infrared Imager Radiometer Suite
+
+# Group: Instrument Modes
+# (no synonym expansions with >=2 labels)
+
+# Group: ISO Topic Category
+climatologyMeteorologyAtmosphere, CLIMATOLOGY/METEOROLOGY/ATMOSPHERE
+extraTerrestrial, EXTRA TERRESTRIAL
+geoscientificInformation, GEOSCIENTIFIC INFORMATION
+imageryBaseMapsEarthCover, IMAGERY/BASE MAPS/EARTH COVER
+inlandWaters, INLAND WATERS
+intelligenceMilitary, INTELLIGENCE/MILITARY
+planningCadastre, PLANNING CADASTRE
+utilitiesCommunications, UTILITIES/COMMUNICATIONS
+
+# Group: Keywords Vocabulary
+CFSTDN, CF Standard Names
+GCMDINST, GCMD Instruments
+GCMDLOC, GCMD Locations
+GCMDPLT, GCMD Platforms
+GCMDPROV, GCMD Providers
+GCMDSK, GCMD Science Keywords
+GEMET, INSPIRE Themes
+NORTHEMES, GeoNorge Themes
+
+# Group: Metadata Source
+# (no synonym expansions with >=2 labels)
+
+# Group: Metadata Status
+# (no synonym expansions with >=2 labels)
+
+# Group: Operational Status
+# (no synonym expansions with >=2 labels)
+
+# Group: Organisation
+Alfred Wegener Institute for Polar and Marine Research, AWI
+Barcelona Supercomputing Center, BSC
+Chalmers University of Technology, Chalmers
+Danish Meteorological Institute, DMI, National Danish Meteorological Institute, The National Danish Meteorological Institute
+Deutscher Wetterdienst, DWD, German Meteorological Service
+Environment and Climate Change Canada, ECCC
+European Centre for Medium-Range Weather Forecasts, ECMWF
+Finnish Meteorological Institute, FMI
+Greenland Ecosystem Monitoring, GEM
+Ifremer, French Research Institute for Exploitation of the Sea
+Institute of Oceanology Polish Academy of Sciences, IO PAN, Institute of Oceanology PAN
+Nansen Environmental and Remote Sensing Center, Nansen Center, NERSC
+NORCE Norwegian Research Centre, NORCE Norwegian Research Centre AS, Norwegian Research Centre, NORCE
+Norwegian Centre for Climate Services, NCSS
+Norwegian Institute for Air Research, NILU
+Norwegian Institute for Nature Research, NINA
+Norwegian Institute for Water Research, NIVA
+Norwegian Institute of Marine Research, IMR
+Norwegian Meteorological Institute, MET Norway
+Norwegian Polar Institute, NPI
+Norwegian University of Science and Technology, NTNU
+Norwegian Water Resources and Energy Directorate, NVE
+Scottish Association For Marine Science, SAMS
+The University of Melbourne, University of Melbourne, Melbourne University
+The University of Tokyo, UT
+UiT The Arctic University of Norway, UiT, Universitetet i Tromsø - The Arctic University of Norway, University of Tromsø - The Arctic University of Norway
+University Centre in Svalbard, UNIS
+University of Bergen, UiB
+University of Oslo, UiO
+University of Silesia in Katowice, University of Silesia
+
+# Group: Platform
+Aqua, Earth Observation System - Aqua
+Envisat, Environmental Satellite
+FY-3D, Feng-Yun 3D
+FY-3E, Feng-Yun 3E
+GCOM-W1, Global Change Observation Mission 1st-Water
+Metop-A, Meteorological operational satellite - A
+Metop-B, Meteorological operational satellite - B
+Metop-C, Meteorological operational satellite - C
+NOAA-15, National Oceanic and Atmospheric Administration - 15
+NOAA-18, National Oceanic and Atmospheric Administration - 18
+NOAA-19, National Oceanic and Atmospheric Administration - 19
+NOAA-20, National Oceanic and Atmospheric Administration - 20
+NOAA-21, National Oceanic and Atmospheric Administration - 21
+Sentinel-5P, Sentinel-5 precursor
+SNPP, Suomi National Polar-orbiting Partnership
+Terra, Earth Observation System - Terra
+
+# Group: Polarisation Modes
+# (no synonym expansions with >=2 labels)
+
+# Group: Product Types
+GRD, Ground Range Detected
+MSI-L1C, Sentinel-2 MSI Level-1C
+MSI-L2A, Sentinel-2 MSI Level-2A
+OCN, Ocean
+OL-L1-EFR, Ocean and Land Colour Instrument (OLCI) Level-1 Full Resolution Top of Atmosphere Reflectance
+OL-L1-ERR, Ocean and Land Colour Instrument (OLCI) Level-1 Reduced Resolution Top of Atmosphere Reflectance
+OL-L2-LFR, Ocean and Land Colour Instrument (OLCI) Level-2 Land and Atmosphere Full Resolution
+OL-L2-LRR, Ocean and Land Colour Instrument (OLCI) Level-2 Land and Atmosphere Reduced Resolution
+OL-L2-WFR, Ocean and Land Colour Instrument (OLCI) Level-2 Water and Atmosphere Full Resolution
+OL-L2-WRR, Ocean and Land Colour Instrument (OLCI) Level-2 Water and Atmosphere Reduced Resolution
+S2MSI1C, Sentinel-2 MSI Level-1C
+S2MSI2A, Sentinel-2 MSI Level-2A
+SAR-EW-L0-RAW, Extra Wide Swath Level-0 Raw
+SAR-EW-L1-GRDH, Extra Wide Swath Level-1 Ground Range Detected High Resolution
+SAR-EW-L1-GRDM, Extra Wide Swath Level-1 Ground Range Detected Medium Resolution
+SAR-EW-L1-SLC, Extra Wide Swath Level-1 Single Look Complex
+SAR-EW-L2-OCN, Extra Wide Swath Level-2 Ocean
+SAR-IW-L0-RAW, Interferometric Wide Swath Level-0 Raw
+SAR-IW-L1-GRDH, Interferometric Wide Swath Level-1 Ground Range Detected High Resolution
+SAR-IW-L1-GRDM, Interferometric Wide Swath Level-1 Ground Range Detected Medium Resolution
+SAR-IW-L1-SLC, Interferometric Wide Swath Level-1 Single Look Complex
+SAR-IW-L2-OCN, Interferometric Wide Swath Level-2 Ocean
+SAR-SM1-L0-RAW, Stripmap (SM) Beam 1 Level-0 Raw
+SAR-SM1-L1-GRDH, Stripmap (SM) Beam 1 Level-1 Ground Range Detected High Resolution
+SAR-SM1-L1-SLC, Stripmap (SM) Beam 1 Level-1 Single Look Complex
+SAR-SM2-L0-RAW, Stripmap (SM) Beam 2 Level-0 Raw
+SAR-SM2-L1-GRDH, Stripmap (SM) Beam 2 Level-1 Ground Range Detected High Resolution
+SAR-SM2-L1-SLC, Stripmap (SM) Beam 2 Level-1 Single Look Complex
+SAR-SM3-L0-RAW, Stripmap (SM) Beam 3 Level-0 Raw
+SAR-SM3-L1-GRDH, Stripmap (SM) Beam 3 Level-1 Ground Range Detected High Resolution
+SAR-SM3-L1-SLC, Stripmap (SM) Beam 3 Level-1 Single Look Complex
+SAR-SM4-L0-RAW, Stripmap (SM) Beam 4 Level-0 Raw
+SAR-SM4-L1-GRDH, Stripmap (SM) Beam 4 Level-1 Ground Range Detected High Resolution
+SAR-SM4-L1-SLC, Stripmap (SM) Beam 4 Level-1 Single Look Complex
+SAR-SM5-L0-RAW, Stripmap (SM) Beam 5 Level-0 Raw
+SAR-SM5-L1-GRDH, Stripmap (SM) Beam 5 Level-1 Ground Range Detected High Resolution
+SAR-SM5-L1-SLC, Stripmap (SM) Beam 5 Level-1 Single Look Complex
+SAR-SM6-L0-RAW, Stripmap (SM) Beam 6 Level-0 Raw
+SAR-SM6-L1-GRDH, Stripmap (SM) Beam 6 Level-1 Ground Range Detected High Resolution
+SAR-SM6-L1-SLC, Stripmap (SM) Beam 6 Level-1 Single Look Complex
+SAR-WV-L1-SLC, Wave Level-1 Single Look Complex
+SAR-WV-L2-OCN, Wave Level-2 Ocean
+SL-L1-RBT, Sea and Land Surface Temperature Radiometer (SLSTR) Level-1 Radiances and Brightness Temperatures
+SL-L2-AOD, Sea and Land Surface Temperature Radiometer (SLSTR) Level-2 Aerosol Optical Depth
+SL-L2-FRP, Sea and Land Surface Temperature Radiometer (SLSTR) Level-2 Fire Radiative Power
+SL-L2-LST, Sea and Land Surface Temperature Radiometer (SLSTR) Level-2 Land Surface Temperature
+SL-L2-WST, Sea and Land Surface Temperature Radiometer (SLSTR) Level-2 Sea Surface Temperature
+SLC, Single Look Complex
+SR-L1A-SRA, Synthetic Aperture Radar Altimeter (SRAL) Level-1A (SRA-A)
+SR-L1B-SRA, Synthetic Aperture Radar Altimeter (SRAL) Level-1B
+SR-L1B-SRA-S, Synthetic Aperture Radar Altimeter (SRAL) Level-1B Stack Data
+SR-L2-LAN, Synthetic Aperture Radar Altimeter (SRAL) Level-2 Land Data
+SR-L2-LAN-HY, Synthetic Aperture Radar Altimeter (SRAL) Level-2 Hydrology
+SR-L2-LAN-LI, Synthetic Aperture Radar Altimeter (SRAL) Level-2 Land Ice
+SR-L2-LAN-SI, Synthetic Aperture Radar Altimeter (SRAL) Level-2 Sea Ice
+SR-L2-WAT, Synthetic Aperture Radar Altimeter (SRAL) Level-2 Marine Data
+SY-L2-AOD, Synergy Level-2 Aerosol Optical Depth
+SY-L2-SYN, Synergy Level-2 Synoptic Product
+SY-L2-VG1, Synergy Level-2 1 day Synthesis Surface Reflectance and NDVI
+SY-L2-VG10, Synergy Level-2 10 day Synthesis Surface Reflectance and NDVI
+SY-L2-VGP, Synergy Level-2 Vegetation Parameters
+TR-L1B-IR-SIR, Infrared Sounder Level-1B Shortwave Infrared
+TR-L1B-IR-UVN, Infrared Sounder Level-1B Ultraviolet-Visible-Near Infrared
+TR-L1B-RA-BD1, Radar Altimeter Level-1B Band 1
+TR-L1B-RA-BD2, Radar Altimeter Level-1B Band 2
+TR-L1B-RA-BD3, Radar Altimeter Level-1B Band 3
+TR-L1B-RA-BD4, Radar Altimeter Level-1B Band 4
+TR-L1B-RA-BD5, Radar Altimeter Level-1B Band 5
+TR-L1B-RA-BD6, Radar Altimeter Level-1B Band 6
+TR-L1B-RA-BD7, Radar Altimeter Level-1B Band 7
+TR-L1B-RA-BD8, Radar Altimeter Level-1B Band 8
+TR-L2-AER-AI, Level-2 Aerosol Index
+TR-L2-AER-LH, Level-2 Layer Height (mid-level pressure)
+TR-L2-CH4, Level-2 Methane total column
+TR-L2-CLOUD, Level-2 Cloud Properties
+TR-L2-CO, Level-2 Carbon Monoxide total column
+TR-L2-HCHO, Level-2 Formaldehyde total column
+TR-L2-NO2, Level-2 Nitrogen Dioxide total column
+TR-L2-NP-BD3, Level-2 Neural Network Probability Product Band 3
+TR-L2-NP-BD6, Level-2 Neural Network Probability Product Band 6
+TR-L2-NP-BD7, Level-2 Neural Network Probability Product Band 7
+TR-L2-O3, Level-2 Ozone total column
+TR-L2-O3-PR, Level-2 Ozone profile
+TR-L2-O3-TCL, Level-2 Ozone tropospheric column
+TR-L2-SO2, Level-2 Sulphor Dioxide total column
+
+# Group: Quality Control
+# (no synonym expansions with >=2 labels)
+
+# Group: Related Information Types
+# (no synonym expansions with >=2 labels)
+
+# Group: Spatial Representation
+# (no synonym expansions with >=2 labels)
+
+# Group: Use Constraint
+CC-BY-3.0, Creative Commons Attribution 3.0 Unported, CC BY 3.0
+CC-BY-4.0, Creative Commons Attribution 4.0 International, CC BY 4.0, Attribution
+CC-BY-NC-4.0, Creative Commons Attribution Non Commercial 4.0 International, CC BY-NC 4.0, Attribution-NonCommercial
+CC-BY-NC-ND-4.0, Creative Commons Attribution Non Commercial No Derivatives 4.0 International, CC BY-NC-ND 4.0, Attribution-NonCommercial-NoDerivs
+CC-BY-NC-SA-4.0, Creative Commons Attribution Non Commercial Share Alike 4.0 International, CC BY-NC-SA 4.0, Attribution-NonCommercial-ShareAlike
+CC-BY-ND-4.0, Creative Commons Attribution No Derivatives 4.0 International, CC BY-ND 4.0, Attribution-NoDerivs
+CC-BY-SA-4.0, Creative Commons Attribution Share Alike 4.0 International, CC BY-SA 4.0, Attribution-ShareAlike
+CC0-1.0, Creative Commons Zero v1.0 Universal, CC0 1.0

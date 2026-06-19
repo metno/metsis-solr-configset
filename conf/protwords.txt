@@ -1,21 +1,338 @@
-# The ASF licenses this file to You under the Apache License, Version 2.0
-# (the "License"); you may not use this file except in compliance with
-# the License.  You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
-#-----------------------------------------------------------------------
-# Use a protected word file to protect against the stemmer reducing two
-# unrelated words to the same base word.
-
-# Some non-words that normally won't be encountered,
-# just to test that they won't be stemmed.
-dontstems
-zwhacky
-
+SAR-C
+SAR-SM5-L1-GRDH
+GCW
+Collection Keywords
+Norwegian Meteorological Institute
+OPeNDAP
+CC-BY-ND-4.0
+Product Types
+FY-3D
+SR-L2-WAT
+In Situ Ocean moving station
+Sentinel-1B
+SRAL
+TR-L1B-RA-BD1
+YOPP
+OL-L1-EFR
+Scottish Association For Marine Science
+utilitiesCommunications
+Contact Roles
+SLSTR
+Beaufort Sea
+Arctic
+Dataset Production Status
+SAR-SM5-L0-RAW
+SNPP
+TROPOMI
+planningCadastre
+Complete
+SL-L1-RBT
+ADC
+S2MSI1C
+UiT The Arctic University of Norway
+CC-BY-4.0
+TR-L2-NP-BD3
+Instrument
+Sentinel-3A
+Sentinel-3B
+Data paper
+Sentinel-6A
+Use Constraint
+VIIRS
+Activity Type
+EW
+structure
+SAR-SM6-L0-RAW
+SR-L1B-SRA-S
+North Sea
+TR-L1B-IR-UVN
+Metop-A
+TR-L2-NP-BD7
+OLCI
+TONE
+Barents Sea
+Norwegian Institute for Nature Research
+SAR-SM1-L1-GRDH
+SR-L1B-SRA
+University of Oslo
+Keywords Vocabulary
+SM
+None
+SAR-SM2-L0-RAW
+Terra
+The University of Melbourne
+Platform
+Finnish Meteorological Institute
+Aircraft
+Extended metadata
+OGC WMS
+Quality Control
+SAR-EW-L2-OCN
+HH
+Maps/Charts/Photographs
+ISO Topic Category
+Related Information Types
+inlandWaters
+Organisation
+Geographical Areas
+NORCE Norwegian Research Centre
+Envisat
+SESS2022
+TR-L2-NP-BD6
+SESS2023
+MSI-L1C
+The University of Tokyo
+Aqua
+SAR-SM1-L0-RAW
+Observation facility
+SR-L2-LAN-SI
+Poseidon-4
+CC-BY-NC-SA-4.0
+MODIS
+AVHRR/3
+Deutscher Wetterdienst
+GCMDINST
+Norwegian Institute for Water Research
+Norwegian Polar Institute
+AMSR2
+grid
+SL-L2-WST
+Norwegian Institute of Marine Research
+Sentinel-2D
+OL-L2-WRR
+Sentinel-2A
+Not available
+SAR-SM1-L1-SLC
+SR-L2-LAN
+Norwegian Sea
+SAR-EW-L0-RAW
+SY-L2-SYN
+TR-L1B-RA-BD4
+Data Access Types
+NOAA-15
+NORTHEMES
+Climate Indicator
+Institute of Oceanology Polish Academy of Sciences
+HH+HV
+Norwegian Centre for Climate Services
+Experimental
+location
+SY-L2-VG1
+NOAA-21
+Norwegian University of Science and Technology
+GEMET
+Instrument Modes
+Person
+DAM
+SAR-SM4-L0-RAW
+SESS2018
+TR-L2-CH4
+GCOM-W1
+SESS2020
+SL-L2-AOD
+SY-L2-AOD
+SSM/I
+Sentinel-2B
+SAR-SM2-L1-GRDH
+Sentinel-1A
+Internal
+Interview/Questionnaire
+Chukchi Sea
+Chalmers University of Technology
+TR-L1B-RA-BD7
+SAR-WV-L2-OCN
+OL-L2-LFR
+Sentinel-3C
+Dataset landing page
+CFSTDN
+SESS2019
+MWR
+VV
+OL-L1-ERR
+economy
+Sentinel-3D
+TR-L1B-RA-BD2
+TR-L2-AER-AI
+NOAA-18
+SY-L2-VGP
+In Situ Land-based station
+Spatial Representation
+Project home page
+disaster
+climatologyMeteorologyAtmosphere
+No quality control
+Laptev Sea
+SL-L2-LST
+Access Constraint
+TR-L1B-RA-BD3
+White Sea
+SAR-SM3-L1-GRDH
+IW
+health
+TR-L2-CO
+SR-L2-LAN-HY
+NOAA-20
+NOAA-19
+TR-L2-O3-TCL
+SAR-SM6-L1-SLC
+Open
+AVHRR
+University of Silesia in Katowice
+GCMDLOC
+TR-L1B-RA-BD6
+Metadata Status
+MSI
+SAR-SM3-L1-SLC
+SAR-WV-L1-SLC
+MSI-L2A
+Polarisation Modes
+society
+Operational
+Scientific publication
+CC-BY-3.0
+trajectory
+TR-L2-NO2
+SAR-IW-L0-RAW
+Denmark Strait
+NSDN
+farming
+Metop-B
+vector
+SL-L2-FRP
+GCMDSK
+Restricted to a community
+Sentinel-1C
+NMDC
+FTP
+Software
+Fram Strait
+SAR-SM2-L1-SLC
+University of Bergen
+Nansen Environmental and Remote Sensing Center
+extraTerrestrial
+SAR-EW-L1-GRDM
+Sentinel-5P
+S2MSI2A
+TR-L2-O3-PR
+Alfred Wegener Institute for Polar and Marine Research
+FY-3E
+Contact Types
+elevation
+GCMDPROV
+SIOSCD
+SIOS
+NySMAC
+University Centre in Svalbard
+APPL
+Pre-Operational
+GRD
+Extended quality control
+In Situ Ship-based station
+DOKI
+OGC WCS
+SAR-IW-L1-SLC
+TR-L2-AER-LH
+Greenland Ecosystem Monitoring
+MERSI-2
+boundaries
+SAR-EW-L1-SLC
+GEONOR
+SIOSAP
+Metadata Source
+biota
+NBS
+SAR-IW-L1-GRDM
+OCN
+In Work
+NMAP
+SLC
+Sentinel-1D
+METNCS
+CC-BY-NC-ND-4.0
+SESS2024
+imageryBaseMapsEarthCover
+Inactive
+TR-L1B-IR-SIR
+Sentinel-6B
+SAR-SM6-L1-GRDH
+CC-BY-NC-4.0
+GCMDPLT
+TR-L2-CLOUD
+SAR-SM3-L0-RAW
+Ifremer
+SY-L2-VG10
+OL-L2-WFR
+environment
+SAR-IW-L1-GRDH
+SAR-IW-L2-OCN
+Users guide
+Other documentation
+Nordic Seas
+East Siberian Sea
+Environment and Climate Change Canada
+geoscientificInformation
+Restricted access to metadata
+TR-L2-HCHO
+KSS
+VV+VH
+Northern Hemisphere
+Greenland Sea
+Registered users only (automated approval)
+Investigator
+SR-L2-LAN-LI
+SAR-EW-L1-GRDH
+POLARIN
+Obsolete
+ASAR
+SIOSIN
+Danish Meteorological Institute
+Sentinel-6C
+In Situ Ice-based station
+Comprehensive quality control
+Basic quality control
+SAR-SM5-L1-SLC
+Numerical Simulation
+oceans
+TR-L2-SO2
+HTTP
+intelligenceMilitary
+Iceland Sea
+SAR-SM4-L1-SLC
+Operational Status
+CC
+Metop-C
+TR-L2-O3
+Norwegian Institute for Air Research
+Space Borne Instrument
+In Situ Ocean fixed station
+TR-L1B-RA-BD8
+ODATA
+Data management plan
+SR-L1A-SRA
+WV
+TR-L1B-RA-BD5
+Sentinel-2C
+CC-BY-SA-4.0
+AeN
+Norwegian Water Resources and Energy Directorate
+OL-L2-LRR
+Registered users only (manual approval required)
+Planned
+ACCESS
+CVL
+SAR-SM4-L1-GRDH
+CC0-1.0
+European Centre for Medium-Range Weather Forecasts
+Metadata author
+Data server landing page
+Data center contact
+transportation
+Scientific
+OGC WFS
+External-Harvest
+Technical contact
+point
+SESS2025
+Barcelona Supercomputing Center
+Kara Sea
+Active

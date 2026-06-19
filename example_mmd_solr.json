@@ -1,33 +1,298 @@
-{
-        "id":"no-met-adc-43f02cf0-8d83-5b12-8cca-dbd4c8d48202",
-        "metadata_identifier":"no.met.adc:43f02cf0-8d83-5b12-8cca-dbd4c8d48202",
-        "last_metadata_update_datetime":["2024-10-24T10:00:00Z"],
-        "last_metadata_update_type":["Created"],
-        "last_metadata_update_note":["MMD record created from the NetCDF file"],
-        "collection":["ADC"],
-        "title":"Title in English",
-        "title_en":"Title in English",
-        "abstract":"Summary in English",
-        "abstract_en":"Summary in English",
-        "temporal_extent_start_date":["2004-08-23T03:00:00Z"],
-        "temporal_extent_period_dr":["[2004-08-23T03:00:00Z TO *]"],
-        "geographic_extent_rectangle_north":78.95738,
-        "geographic_extent_rectangle_south":78.95738,
-        "geographic_extent_rectangle_east":11.82275,
-        "geographic_extent_rectangle_west":11.82275,
-        "geographic_extent_rectangle_srsName":"EPSG:4326",
-        "bbox":"ENVELOPE(11.82275, 11.82275, 78.95738, 78.95738)",
-        "geospatial_bounds3d":"POINT (11.82275 78.95738)",
-        "geometry_wkt":"POINT (11.82275 78.95738)",
-        "geometry_geojson":"{\"type\":\"Point\",\"coordinates\":[11.82275,78.95738]}",
-        "dataset_production_status":"Not available",
-        "keywords_keyword":["Earth Science > Spectral/Engineering > RADAR > RADAR backscatter"],
-        "keywords_vocabulary":["GCMDSK"],
-        "keywords_gcmd":["Earth Science > Spectral/Engineering > RADAR > RADAR backscatter"],
-        "mmd_xml_file":"<mmd:mmd xmlns:mmd=\"http://www.met.no/schema/mmd\">\n  <mmd:metadata_identifier>no.met.adc:43f02cf0-8d83-5b12-8cca-dbd4c8d48202</mmd:metadata_identifier>\n  <mmd:title xml:lang=\"en\">Title in English</mmd:title>\n  <mmd:abstract xml:lang=\"en\">Summary in English</mmd:abstract>\n  <mmd:metadata_status>Active</mmd:metadata_status>\n  <mmd:dataset_production_status>Not available</mmd:dataset_production_status>\n  <mmd:collection>ADC</mmd:collection>\n  <mmd:last_metadata_update>\n    <mmd:update>\n      <mmd:datetime>2024-10-24T10:00:00Z</mmd:datetime>\n      <mmd:type>Created</mmd:type>\n      <mmd:note>MMD record created from the NetCDF file</mmd:note>\n    </mmd:update>\n  </mmd:last_metadata_update>\n  <mmd:temporal_extent>\n    <mmd:start_date>2004-08-23T03:00:00Z</mmd:start_date>\n  </mmd:temporal_extent>\n  <mmd:iso_topic_category>climatologyMeteorologyAtmosphere</mmd:iso_topic_category>\n  <mmd:keywords vocabulary=\"GCMDSK\">\n    <mmd:keyword>Earth Science > Spectral/Engineering > RADAR > RADAR backscatter</mmd:keyword>\n  </mmd:keywords>\n  <mmd:geographic_extent>\n    <mmd:rectangle srsName=\"EPSG:4326\">\n      <mmd:north>78.95738</mmd:north>\n      <mmd:south>78.95738</mmd:south>\n      <mmd:east>11.82275</mmd:east>\n      <mmd:west>11.82275</mmd:west>\n    </mmd:rectangle>\n  </mmd:geographic_extent>\n</mmd:mmd>\n",
-        "isParent":false,
-        "isChild":false,
-        "dataset_type":"Level-1",
-        "metadata_status":"Active",
-        "iso_topic_category":["climatologyMeteorologyAtmosphere"]
-}
+[
+        {
+                "id": "8a21900c-61ee-56eb-ab20-c1a4826982b7",
+                "metadata_identifier": "8a21900c-61ee-56eb-ab20-c1a4826982b7",
+                "alternate_identifier": [
+                        "urn:wmo:md:int.wmo.wis::ca.gc.ec.msc-1.1.9.3"
+                ],
+                "alternate_identifier_type": [
+                        "WIS"
+                ],
+                "metadata_status": "Active",
+                "dataset_production_status": "Not available",
+                "title_no": "Title på norsk",
+                "title": "Title in English",
+                "title_hl": "Title in English",
+                "abstract_no": "Sammendrag pa norsk med ekstra kontekst. Dokumentasjon: https://example.org/mmd/full og kontakt: support@example.org.",
+                "abstract": "Summary in English with additional context on scope and provenance. Documentation: https://example.org/mmd/full and support email: support@example.org.",
+                "abstract_hl": "Summary in English with additional context on scope and provenance. Documentation: https://example.org/mmd/full and support email: support@example.org.",
+                "dataset_language": "en",
+                "operational_status": "Scientific",
+                "access_constraint": "Open",
+                "use_constraint_identifier": "CC-BY-4.0",
+                "use_constraint_resource": "http://spdx.org/licenses/CC-BY-4.0",
+                "spatial_representation": "grid",
+                "descriptions": [
+                        "grid",
+                        "Open-source Project for a Network Data Access Protocol",
+                        "WIGOS Station: KVITOYA (0-20000-0-01011)",
+                        "Other documentation",
+                        "First1 Family1 and First2 Family2",
+                        "2024-11-04",
+                        "Title in English",
+                        "Norwegian Meteorological Institute",
+                        "10.21343/XXXX-YYYY",
+                        "climatologyMeteorologyAtmosphere",
+                        "oceans",
+                        "imageryBaseMapsEarthCover",
+                        "Space Borne Instrument",
+                        "Climate Indicator",
+                        "Basic quality control"
+                ],
+                "last_metadata_update_json": "[{\"type\":\"Created\",\"datetime\":\"2024-10-24T10:00:00Z\",\"note\":\"MMD record created from the NetCDF file\"},{\"type\":\"Major modification\",\"datetime\":\"2025-11-28T10:00:00Z\",\"note\":\"Converted to MMD v4\"}]",
+                "last_metadata_created_date": "2024-10-24T10:00:00Z",
+                "last_metadata_updated_date": "2025-11-28T10:00:00Z",
+                "temporal_extent_start_date": [
+                        "2004-08-23T03:00:00Z"
+                ],
+                "temporal_extent_end_date": [
+                        "2005-09-14T09:00:00Z"
+                ],
+                "temporal_extent_period_dr": [
+                        "[2004-08-23T03:00:00Z TO 2005-09-14T09:00:00Z]"
+                ],
+                "geographic_extent_rectangle_srsName": "EPSG:4326",
+                "geographic_extent_rectangle_north": 78.95738,
+                "geographic_extent_rectangle_south": 78.95738,
+                "geographic_extent_rectangle_east": 11.82275,
+                "geographic_extent_rectangle_west": 11.82275,
+                "bbox": "ENVELOPE(11.82275, 11.82275, 78.95738, 78.95738)",
+                "geospatial_bounds3d": "POINT (11.82275 78.95738)",
+                "geometry_wkt": "POINT (11.82275 78.95738)",
+                "geometry_geojson": "{\"type\":\"Point\",\"coordinates\":[11.82275,78.95738]}",
+                "keywords_gcmd": [
+                        "Earth Science > Spectral/Engineering > RADAR > RADAR backscatter",
+                        "Earth Science > Spectral/Engineering > RADAR > RADAR imagery",
+                        "Earth Science > Spectral/Engineering > Microwave > Microwave imagery"
+                ],
+                "keywords_gemet": [
+                        "Orthoimagery",
+                        "Land cover",
+                        "Oceanographic geographical features"
+                ],
+                "keywords_keyword": [
+                        "Earth Science > Spectral/Engineering > RADAR > RADAR backscatter",
+                        "Earth Science > Spectral/Engineering > RADAR > RADAR imagery",
+                        "Earth Science > Spectral/Engineering > Microwave > Microwave imagery",
+                        "Orthoimagery",
+                        "Land cover",
+                        "Oceanographic geographical features"
+                ],
+                "keywords_vocabulary": [
+                        "GCMDSK",
+                        "GEMET"
+                ],
+                "related_dataset": [
+                        "1a9e3cd3-0905-48b2-86e6-5585dcdf8cc1"
+                ],
+                "related_dataset_id": [
+                        "1a9e3cd3-0905-48b2-86e6-5585dcdf8cc1"
+                ],
+                "personnel_role": [
+                        "Data center contact",
+                        "Investigator",
+                        "Metadata author",
+                        "Technical contact"
+                ],
+                "personnel_name": [
+                        "ADC support",
+                        "First1 Family1",
+                        "First2 Family2",
+                        "First3 Family3",
+                        "NBS Helpdesk"
+                ],
+                "personnel_organisation": [
+                        "Norwegian Meteorological Institute",
+                        "Norwegian Meteorological Institute / Arctic Data Centre",
+                        "Norwegian Water Resources and Energy Directorate"
+                ],
+                "personnel_json": "[{\"role\":\"Investigator\",\"name\":\"First1 Family1\",\"organisation\":\"Norwegian Meteorological Institute\",\"email\":\"first.fam@met.no\",\"type\":\"Person\",\"name_uri\":\"https://orcid.org/0000-0001-5221-1377\",\"org_uri\":\"https://ror.org/001n36p86\",\"contact_address\":{\"address\":\"Meteorologisk institutt, Henrik Mohnsplass 1\",\"city\":\"Oslo\",\"province_or_state\":\"Oslo\",\"postal_code\":\"0000\",\"country\":\"Norway\"}},{\"role\":\"Investigator\",\"name\":\"First2 Family2\",\"organisation\":\"Norwegian Water Resources and Energy Directorate\",\"email\":\"first2.fam2@nve.no\",\"type\":\"Person\",\"org_uri\":\"https://ror.org/02syy7986\",\"contact_address\":{\"address\":\"Meteorologisk institutt, Henrik Mohnsplass 1\",\"city\":\"Oslo\",\"province_or_state\":\"Oslo\",\"postal_code\":\"0000\",\"country\":\"Norway\"}},{\"role\":\"Technical contact\",\"name\":\"First3 Family3\",\"organisation\":\"Norwegian Meteorological Institute\",\"email\":\"first3.fam3@met.no\",\"org_uri\":\"https://ror.org/001n36p86\"},{\"role\":\"Metadata author\",\"name\":\"NBS Helpdesk\",\"organisation\":\"Norwegian Meteorological Institute\",\"email\":\"nbs-helpdesk@met.no\",\"type\":\"Organisation\",\"org_uri\":\"https://ror.org/001n36p86\"},{\"role\":\"Data center contact\",\"name\":\"ADC support\",\"organisation\":\"Norwegian Meteorological Institute / Arctic Data Centre\",\"email\":\"adc-support@met.no\",\"type\":\"Organisation\"}]",
+                "resources": [
+                        "first.fam@met.no",
+                        "https://orcid.org/0000-0001-5221-1377",
+                        "https://ror.org/001n36p86",
+                        "first2.fam2@nve.no",
+                        "https://ror.org/02syy7986",
+                        "first3.fam3@met.no",
+                        "nbs-helpdesk@met.no",
+                        "adc-support@met.no",
+                        "https://thredds.met.no/thredds/dodsC/arcticdata/obsSynop/02910",
+                        "https://oscar.wmo.int/surface/#/search/station/stationReportDetails/0-20000-0-01011",
+                        "https://doi.org/10.XXXXX/AABBCCDD",
+                        "https://doi.org/10.21343/XXXX-YYYY",
+                        "https://space.oscar.wmo.int/satellites/view/sentinel_1c",
+                        "https://space.oscar.wmo.int/satellites/view/sentinel_1a",
+                        "https://space.oscar.wmo.int/instruments/view/sar_c_sentinel_1",
+                        "http://vocab.nerc.ac.uk/collection/C17/current/67CE/",
+                        "http://vocab.nerc.ac.uk/collection/L22/current/TOOL0001/",
+                        "http://vocab.nerc.ac.uk/collection/L22/current/TOOL0292/"
+                ],
+                "data_access_url_opendap": [
+                        "https://thredds.met.no/thredds/dodsC/arcticdata/obsSynop/02910"
+                ],
+                "data_access_json": "[{\"type\":\"OPeNDAP\",\"description\":\"Open-source Project for a Network Data Access Protocol\",\"resource\":\"https://thredds.met.no/thredds/dodsC/arcticdata/obsSynop/02910\"}]",
+                "related_information_type": [
+                        "Observation facility",
+                        "Other documentation"
+                ],
+                "related_information_resource": [
+                        "https://oscar.wmo.int/surface/#/search/station/stationReportDetails/0-20000-0-01011",
+                        "https://doi.org/10.XXXXX/AABBCCDD"
+                ],
+                "related_information_description": [
+                        "WIGOS Station: KVITOYA (0-20000-0-01011)",
+                        "Other documentation"
+                ],
+                "related_information_json": "[{\"type\":\"Observation facility\",\"description\":\"WIGOS Station: KVITOYA (0-20000-0-01011)\",\"resource\":\"https://oscar.wmo.int/surface/#/search/station/stationReportDetails/0-20000-0-01011\"},{\"type\":\"Other documentation\",\"description\":\"Other documentation\",\"resource\":\"https://doi.org/10.XXXXX/AABBCCDD\"}]",
+                "project_short_name": [
+                        "MYPR1",
+                        "MYPR2"
+                ],
+                "project_long_name": [
+                        "My Project 1",
+                        "My Project 2"
+                ],
+                "project_name": [
+                        "MYPR1",
+                        "MYPR2"
+                ],
+                "data_center_short_name": "NO/MET/ADC",
+                "data_center_long_name": "Norwegian Meteorological Institute / Arctic Data Centre",
+                "data_center_name": "NO/MET/ADC",
+                "data_center_url": "https://adc.met.no/",
+                "storage_information_file_name": "S1A_WV_OCN__2SSV_20240302T191855_20240302T192435_052807_0663FD_9E80.nc",
+                "storage_information_file_location": "/some/path/that/should/not/be/exposed",
+                "storage_information_file_format": "NetCDF-CF",
+                "storage_information_responsible_unit": "HAV-FD",
+                "storage_information_file_size": "163.95",
+                "storage_information_file_size_unit": "MB",
+                "storage_information_file_checksum": "3e25fde68624b130c5b1fa9c59366921",
+                "storage_information_file_checksum_type": "md5sum",
+                "storage_information_file_storage_expiry_date": "2026-10-11T00:00:00Z",
+                "dataset_citation_json": "[{\"author\":\"First1 Family1 and First2 Family2\",\"publication_date\":\"2024-11-04\",\"title\":\"Title in English\",\"publisher\":\"Norwegian Meteorological Institute\",\"doi\":\"https://doi.org/10.21343/XXXX-YYYY\"}]",
+                "dataset_citation_publication_date": [
+                        "2024-11-04T00:00:00Z"
+                ],
+                "dataset_citation_doi": [
+                        "https://doi.org/10.21343/XXXX-YYYY"
+                ],
+                "dataset_citation_title": [
+                        "Title in English"
+                ],
+                "platform_short_name": [
+                        "Sentinel-1C",
+                        "Sentinel-1A",
+                        "Another"
+                ],
+                "platform_long_name": [
+                        "Sentinel-1C",
+                        "Sentinel-1A",
+                        "Oceania"
+                ],
+                "platform_name": [
+                        "Another",
+                        "Oceania",
+                        "Sentinel-1A",
+                        "Sentinel-1C"
+                ],
+                "platform_resource": [
+                        "https://space.oscar.wmo.int/satellites/view/sentinel_1c",
+                        "https://space.oscar.wmo.int/satellites/view/sentinel_1a",
+                        "http://vocab.nerc.ac.uk/collection/C17/current/67CE/"
+                ],
+                "platform_orbit_relative": [
+                        121
+                ],
+                "platform_orbit_absolute": [
+                        62391
+                ],
+                "platform_orbit_direction": [
+                        "ascending"
+                ],
+                "platform_instrument_short_name": [
+                        "SAR-C",
+                        "CTD",
+                        "ASL IPS4 ice profiler"
+                ],
+                "platform_instrument_long_name": [
+                        "Synthetic Aperture Radar (C-band)",
+                        "Conductivity, temperature and depth package"
+                ],
+                "platform_instrument_name": [
+                        "ASL IPS4 ice profiler",
+                        "CTD",
+                        "SAR-C"
+                ],
+                "platform_instrument_resource": [
+                        "https://space.oscar.wmo.int/instruments/view/sar_c_sentinel_1",
+                        "http://vocab.nerc.ac.uk/collection/L22/current/TOOL0001/",
+                        "http://vocab.nerc.ac.uk/collection/L22/current/TOOL0292/"
+                ],
+                "platform_instrument_mode": [
+                        "IW"
+                ],
+                "platform_instrument_polarisation": [
+                        "VV+VH"
+                ],
+                "platform_ancillary_cloud_coverage": [
+                        23.4
+                ],
+                "platform_ancillary_scene_coverage": [
+                        77.0
+                ],
+                "platform_ancillary_timeliness": [
+                        "NRT"
+                ],
+                "platform_json": "[{\"short_name\":\"Sentinel-1C\",\"long_name\":\"Sentinel-1C\",\"resource\":\"https://space.oscar.wmo.int/satellites/view/sentinel_1c\"},{\"short_name\":\"Sentinel-1A\",\"long_name\":\"Sentinel-1A\",\"resource\":\"https://space.oscar.wmo.int/satellites/view/sentinel_1a\",\"orbit_direction\":\"ascending\",\"orbit_relative\":\"121\",\"orbit_absolute\":\"62391\",\"instrument\":{\"short_name\":\"SAR-C\",\"long_name\":\"Synthetic Aperture Radar (C-band)\",\"resource\":\"https://space.oscar.wmo.int/instruments/view/sar_c_sentinel_1\",\"mode\":\"IW\",\"polarisation\":\"VV+VH\"},\"ancillary\":{\"cloud_coverage\":\"23.4\",\"scene_coverage\":\"77\",\"timeliness\":\"NRT\"}},{\"long_name\":\"Oceania\",\"resource\":\"http://vocab.nerc.ac.uk/collection/C17/current/67CE/\",\"instrument\":{\"short_name\":\"CTD\",\"long_name\":\"Conductivity, temperature and depth package\",\"resource\":\"http://vocab.nerc.ac.uk/collection/L22/current/TOOL0001/\"}},{\"short_name\":\"Another\",\"instrument\":{\"short_name\":\"ASL IPS4 ice profiler\",\"resource\":\"http://vocab.nerc.ac.uk/collection/L22/current/TOOL0292/\"}}]",
+                "activity_type": [
+                        "Space Borne Instrument",
+                        "Climate Indicator"
+                ],
+                "quality_control": "Basic quality control",
+                "isParent": false,
+                "isChild": true,
+                "feature_type": "timeSeries",
+                "mmd_xml_file": "<mmd:mmd xmlns:mmd=\"http://www.met.no/schema/mmd\">\n  <mmd:metadata_identifier>8a21900c-61ee-56eb-ab20-c1a4826982b7</mmd:metadata_identifier><mmd:alternate_identifier type=\"WIS\">urn:wmo:md:int.wmo.wis::ca.gc.ec.msc-1.1.9.3</mmd:alternate_identifier>\n  <mmd:title xml:lang=\"en\">Title in English</mmd:title>\n  <mmd:title xml:lang=\"no\">Title på norsk</mmd:title>\n  <mmd:abstract xml:lang=\"en\">Summary in English with additional context on scope and provenance. Documentation: https://example.org/mmd/full and support email: support@example.org.</mmd:abstract>\n  <mmd:abstract xml:lang=\"no\">Sammendrag pa norsk med ekstra kontekst. Dokumentasjon: https://example.org/mmd/full og kontakt: support@example.org.</mmd:abstract>\n  <mmd:metadata_status>Active</mmd:metadata_status>\n  <mmd:dataset_production_status>Not available</mmd:dataset_production_status>\n  <mmd:collection>ADC</mmd:collection>\n  <mmd:collection>SIOS</mmd:collection>\n  <mmd:last_metadata_update>\n    <mmd:update>\n      <mmd:datetime>2024-10-24T10:00:00Z</mmd:datetime>\n      <mmd:type>Created</mmd:type>\n      <mmd:note>MMD record created from the NetCDF file</mmd:note>\n    </mmd:update>\n    <mmd:update>\n      <mmd:datetime>2025-11-28T10:00:00Z</mmd:datetime>\n      <mmd:type>Major modification</mmd:type>\n      <mmd:note>Converted to MMD v4</mmd:note>\n    </mmd:update>\n  </mmd:last_metadata_update>\n  <mmd:temporal_extent>\n    <mmd:start_date>2004-08-23T03:00:00Z</mmd:start_date>\n    <mmd:end_date>2005-09-14T09:00:00Z</mmd:end_date>\n  </mmd:temporal_extent>\n  <mmd:iso_topic_category>climatologyMeteorologyAtmosphere</mmd:iso_topic_category>\n  <mmd:iso_topic_category>oceans</mmd:iso_topic_category>\n  <mmd:iso_topic_category>imageryBaseMapsEarthCover</mmd:iso_topic_category>\n  <mmd:keywords vocabulary=\"GCMDSK\">\n    <mmd:keyword>Earth Science &gt; Spectral/Engineering &gt; RADAR &gt; RADAR backscatter</mmd:keyword>\n  <mmd:keyword>Earth Science &gt; Spectral/Engineering &gt; RADAR &gt; RADAR imagery</mmd:keyword>\n  <mmd:keyword>Earth Science &gt; Spectral/Engineering &gt; Microwave &gt; Microwave imagery</mmd:keyword>\n  <mmd:resource>https://gcmd.earthdata.nasa.gov/kms/concepts/concept_scheme/sciencekeywords</mmd:resource>\n  <mmd:separator>&gt;</mmd:separator>\n  </mmd:keywords>\n  <mmd:keywords vocabulary=\"GEMET\">\n    <mmd:keyword>Orthoimagery</mmd:keyword>\n    <mmd:keyword>Land cover</mmd:keyword>\n    <mmd:keyword>Oceanographic geographical features</mmd:keyword>\n    <mmd:resource>http://inspire.ec.europa.eu/theme</mmd:resource>\n  </mmd:keywords>\n  <mmd:operational_status>Scientific</mmd:operational_status>\n  <mmd:dataset_language>en</mmd:dataset_language>\n  <mmd:geographic_extent>\n    <mmd:rectangle srsName=\"EPSG:4326\">\n      <mmd:north>78.95738</mmd:north>\n      <mmd:south>78.95738</mmd:south>\n      <mmd:east>11.82275</mmd:east>\n      <mmd:west>11.82275</mmd:west>\n    </mmd:rectangle>\n  </mmd:geographic_extent>\n  <mmd:access_constraint>Open</mmd:access_constraint>\n  <mmd:use_constraint>\n    <mmd:identifier>CC-BY-4.0</mmd:identifier>\n    <mmd:resource>http://spdx.org/licenses/CC-BY-4.0</mmd:resource>\n  </mmd:use_constraint>\n  <mmd:project>\n    <mmd:short_name>MYPR1</mmd:short_name>\n    <mmd:long_name>My Project 1</mmd:long_name>\n  </mmd:project>\n  <mmd:project>\n    <mmd:short_name>MYPR2</mmd:short_name>\n    <mmd:long_name>My Project 2</mmd:long_name>\n  </mmd:project>\n  <mmd:activity_type>Space Borne Instrument</mmd:activity_type>\n  <mmd:activity_type>Climate Indicator</mmd:activity_type>\n  <mmd:platform>\n    <mmd:short_name>Sentinel-1C</mmd:short_name>\n    <mmd:long_name>Sentinel-1C</mmd:long_name>\n    <mmd:resource>https://space.oscar.wmo.int/satellites/view/sentinel_1c</mmd:resource>\n  </mmd:platform>\n  <mmd:platform>\n    <mmd:short_name>Sentinel-1A</mmd:short_name>\n    <mmd:long_name>Sentinel-1A</mmd:long_name>\n    <mmd:resource>https://space.oscar.wmo.int/satellites/view/sentinel_1a</mmd:resource>\n    <mmd:orbit_relative>121</mmd:orbit_relative>\n    <mmd:orbit_absolute>62391</mmd:orbit_absolute>\n    <mmd:orbit_direction>ascending</mmd:orbit_direction>\n    <mmd:instrument>\n         <mmd:short_name>SAR-C</mmd:short_name>\n         <mmd:long_name>Synthetic Aperture Radar (C-band)</mmd:long_name>\n         <mmd:resource>https://space.oscar.wmo.int/instruments/view/sar_c_sentinel_1</mmd:resource>\n         <mmd:mode>IW</mmd:mode>\n         <mmd:polarisation>VV+VH</mmd:polarisation>\n    </mmd:instrument>\n    <mmd:ancillary>\n         <mmd:cloud_coverage>23.4</mmd:cloud_coverage>\n         <mmd:scene_coverage>77</mmd:scene_coverage>\n         <mmd:timeliness>NRT</mmd:timeliness>\n    </mmd:ancillary>\n  </mmd:platform>\n  <mmd:platform>\n    <mmd:short_name/>\n    <mmd:long_name>Oceania</mmd:long_name>\n    <mmd:resource>http://vocab.nerc.ac.uk/collection/C17/current/67CE/</mmd:resource>\n    <mmd:instrument>\n         <mmd:short_name>CTD</mmd:short_name>\n         <mmd:long_name>Conductivity, temperature and depth package</mmd:long_name>\n         <mmd:resource>http://vocab.nerc.ac.uk/collection/L22/current/TOOL0001/</mmd:resource>\n    </mmd:instrument>\n  </mmd:platform>\n  <mmd:platform>\n    <mmd:short_name>Another</mmd:short_name>\n    <mmd:long_name/>\n    <mmd:resource/>\n    <mmd:instrument>\n         <mmd:short_name>ASL IPS4 ice profiler</mmd:short_name>\n         <mmd:long_name/>\n         <mmd:resource>http://vocab.nerc.ac.uk/collection/L22/current/TOOL0292/</mmd:resource>\n    </mmd:instrument>\n  </mmd:platform>\n   <mmd:spatial_representation>grid</mmd:spatial_representation>\n   <mmd:related_information>\n     <mmd:type>Observation facility</mmd:type>\n     <mmd:description>WIGOS Station: KVITOYA (0-20000-0-01011)</mmd:description>\n     <mmd:resource>https://oscar.wmo.int/surface/#/search/station/stationReportDetails/0-20000-0-01011</mmd:resource>\n  </mmd:related_information>\n  <mmd:related_information>\n    <mmd:type>Other documentation</mmd:type>\n    <mmd:description>Other documentation</mmd:description>\n    <mmd:resource>https://doi.org/10.XXXXX/AABBCCDD</mmd:resource>\n  </mmd:related_information>\n  <mmd:personnel>\n    <mmd:name uri=\"https://orcid.org/0000-0001-5221-1377\">First1 Family1</mmd:name>\n    <mmd:role>Investigator</mmd:role>\n    <mmd:type>Person</mmd:type>\n    <mmd:email>first.fam@met.no</mmd:email>\n    <mmd:organisation uri=\"https://ror.org/001n36p86\">Norwegian Meteorological Institute</mmd:organisation>\n    <mmd:contact_address>\n     <mmd:address>Meteorologisk institutt, Henrik Mohnsplass 1</mmd:address>\n     <mmd:city>Oslo</mmd:city>\n     <mmd:province_or_state>Oslo</mmd:province_or_state>\n     <mmd:postal_code>0000</mmd:postal_code>\n     <mmd:country>Norway</mmd:country>\n     </mmd:contact_address>\n  </mmd:personnel>\n  <mmd:personnel>\n    <mmd:name>First2 Family2</mmd:name>\n    <mmd:role>Investigator</mmd:role>\n    <mmd:type>Person</mmd:type>\n    <mmd:email>first2.fam2@nve.no</mmd:email>\n    <mmd:organisation uri=\"https://ror.org/02syy7986\">Norwegian Water Resources and Energy Directorate</mmd:organisation>\n   <mmd:contact_address>\n      <mmd:address>Meteorologisk institutt, Henrik Mohnsplass 1</mmd:address>\n      <mmd:city>Oslo</mmd:city>\n      <mmd:province_or_state>Oslo</mmd:province_or_state>\n      <mmd:postal_code>0000</mmd:postal_code>\n      <mmd:country>Norway</mmd:country>\n    </mmd:contact_address>\n  </mmd:personnel>\n  <mmd:personnel>\n    <mmd:name>First3 Family3</mmd:name>\n    <mmd:role>Technical contact</mmd:role>\n    <mmd:email>first3.fam3@met.no</mmd:email>\n    <mmd:organisation uri=\"https://ror.org/001n36p86\">Norwegian Meteorological Institute</mmd:organisation>\n  </mmd:personnel>\n  <mmd:personnel>\n    <mmd:role>Metadata author</mmd:role>\n    <mmd:type>Organisation</mmd:type>\n    <mmd:name>NBS Helpdesk</mmd:name>\n    <mmd:email>nbs-helpdesk@met.no</mmd:email>\n    <mmd:organisation uri=\"https://ror.org/001n36p86\">Norwegian Meteorological Institute</mmd:organisation>\n  </mmd:personnel>\n  <mmd:personnel>\n    <mmd:name>ADC support</mmd:name>\n    <mmd:role>Data center contact</mmd:role>\n    <mmd:type>Organisation</mmd:type>\n    <mmd:email>adc-support@met.no</mmd:email>\n    <mmd:organisation>Norwegian Meteorological Institute / Arctic Data Centre</mmd:organisation>\n  </mmd:personnel>\n  <mmd:dataset_citation>\n    <mmd:title>Title in English</mmd:title>\n    <mmd:author>First1 Family1 and First2 Family2</mmd:author>\n    <mmd:publisher>Norwegian Meteorological Institute</mmd:publisher>\n    <mmd:publication_date>2024-11-04</mmd:publication_date>\n    <mmd:doi>https://doi.org/10.21343/XXXX-YYYY</mmd:doi>\n  </mmd:dataset_citation>\n  <mmd:quality_control>Basic quality control</mmd:quality_control>\n  <mmd:data_access>\n    <mmd:type>OPeNDAP</mmd:type>\n    <mmd:description>Open-source Project for a Network Data Access Protocol</mmd:description>\n    <mmd:resource>https://thredds.met.no/thredds/dodsC/arcticdata/obsSynop/02910</mmd:resource>\n  </mmd:data_access>\n  <mmd:data_center>\n    <mmd:data_center_name>\n      <mmd:short_name>NO/MET/ADC</mmd:short_name>\n      <mmd:long_name>Norwegian Meteorological Institute / Arctic Data Centre</mmd:long_name>\n    </mmd:data_center_name>\n    <mmd:data_center_url>https://adc.met.no/</mmd:data_center_url>\n  </mmd:data_center>\n  <mmd:related_dataset relation_type=\"parent\">1a9e3cd3-0905-48b2-86e6-5585dcdf8cc1</mmd:related_dataset>\n  <mmd:storage_information>\n    <mmd:file_name>S1A_WV_OCN__2SSV_20240302T191855_20240302T192435_052807_0663FD_9E80.nc</mmd:file_name>\n    <mmd:file_format>NetCDF-CF</mmd:file_format>\n    <mmd:file_size unit=\"MB\">163.95</mmd:file_size>\n    <mmd:checksum type=\"md5sum\">3e25fde68624b130c5b1fa9c59366921</mmd:checksum>\n    <mmd:storage_expiry_date>2026-10-11</mmd:storage_expiry_date>\n    <mmd:responsible_unit>HAV-FD</mmd:responsible_unit>\n  </mmd:storage_information>\n  <mmd:metadata_source>Internal</mmd:metadata_source>\n</mmd:mmd>\n",
+                "collection": [
+                        "ADC",
+                        "SIOS"
+                ],
+                "personnel_organisation_facet": [
+                        "Norwegian Meteorological Institute",
+                        "Norwegian Meteorological Institute / Arctic Data Centre",
+                        "Norwegian Water Resources and Energy Directorate"
+                ],
+                "metadata_source": "Internal",
+                "personnel_name_facet": [
+                        "ADC support",
+                        "First1 Family1",
+                        "First2 Family2",
+                        "First3 Family3",
+                        "NBS Helpdesk"
+                ],
+                "platform_name_facet": [
+                        "Another",
+                        "Oceania",
+                        "Sentinel-1A",
+                        "Sentinel-1C"
+                ],
+                "project_name_facet": [
+                        "MYPR1",
+                        "MYPR2"
+                ],
+                "iso_topic_category": [
+                        "climatologyMeteorologyAtmosphere",
+                        "imageryBaseMapsEarthCover",
+                        "oceans"
+                ],
+                "platform_instrument_name_facet": [
+                        "ASL IPS4 ice profiler",
+                        "CTD",
+                        "SAR-C"
+                ],
+                "observation_facility": [
+                        "WIGOS Station: KVITOYA (0-20000-0-01011)"
+                ],
+                "timestamp": "2026-06-18T13:50:16.916Z"
+        }
+]

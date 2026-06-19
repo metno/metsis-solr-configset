@@ -363,7 +363,7 @@
     <!-- Let the config generator easily inject additional stuff. -->
     &query;
 
-        <!-- Query Related Event Listeners
+                    <!-- Query Related Event Listeners
 
          Various IndexSearcher related events can trigger Listeners to
          take actions.
@@ -385,59 +385,88 @@
     <listener event="newSearcher" class="solr.QuerySenderListener">
       <arr name="queries">
         <lst>
-          <str name="q">*:* OR _query_:{!join from=related_dataset_id to=id v='*:*'}</str>
+          <str name="q">*:*</str>
+          <str name="defType">lucene</str>
           <str name="q.op">OR</str>
           <str name="rows">60</str>
-          <str name="fl">id,related_dataset_id,platform_instrument_product_type,thumbnail_url,isParent,isChild,related_url_landing_page,title,data_access_url_ogc_wms,project_long_name,project_short_name,personnel_organisation,last_metadata_update_datetime,dataset_citation_doi,temporal_extent_start_date,temporal_extent_end_date,abstract,related_url_landing_page_desc,data_access_url_opendap,feature_type,ss_access,data_access_url_http,data_access_url_ftp,data_access_url_odata,use_constraint_resource,use_constraint_license_text,use_constraint_identifier,access_constraint,score,hash,uuid,geographic_extent_rectangle_south,geographic_extent_rectangle_north,geographic_extent_rectangle_west,geographic_extent_rectangle_east,use_constraint,activity_type,dataset_production_status,metadata_status,personnel_name,metadata_identifier,collection,data_access_wms_layers,total_children:[subquery],found_children:[subquery],parent:[subquery]</str>
+          <str name="fl">id,related_dataset_id,platform_instrument_product_type,thumbnail_url,isParent,isChild,related_url_landing_page,title,data_access_url_ogc_wms,project_long_name,project_short_name,personnel_organisation,last_metadata_update_datetime,dataset_citation_doi,temporal_extent_start_date,temporal_extent_end_date,abstract,related_url_landing_page_desc,data_access_url_opendap,feature_type,ss_access,data_access_url_http,data_access_url_ftp,data_access_url_odata,use_constraint_resource,use_constraint_license_text,use_constraint_identifier,access_constraint,score,hash,uuid,geographic_extent_rectangle_south,geographic_extent_rectangle_north,geographic_extent_rectangle_west,geographic_extent_rectangle_east,use_constraint,activity_type,dataset_production_status,metadata_status,personnel_name,metadata_identifier,collection,data_access_wms_layers,total_children:[subquery],found_children:[subquery]</str>
           <str name="df">full_text</str>
           <str name="sort">temporal_extent_start_date desc</str>
-          <str name="fq">(+metadata_status:"Active" +isChild:"false")</str>
-          <str name="fq">(isParent:"true" isParent:"false")</str>
-          <str name="fq">collection:(ADC SIOS METNCS NBS NMDC NSDN)</str>
-          <str name="found_children.q">*:*</str>
-          <str name="found_children.fq">(+metadata_status:"Active" +isChild:"true")</str>
-          <str name="found_children.fq">{!terms f=related_dataset_id v=$row.id}</str>
-          <str name="found_children.rows">0</str>
-          <str name="total_children.q">{!terms f=related_dataset_id v=$row.id}</str>
+          <str name="fq">metadata_status:Active</str>
+          <str name="fq">{!tag=parent_child_filter}-isChild:true</str>
+          <str name="found_children.defType">lucene</str>
+          <str name="found_children.child_text_q">*:*</str>
+          <str name="found_children.parent_row_q">{!term f=id v=$row.id}</str>
+          <str name="found_children.parent_text_q">*:*</str>
+          <str name="found_children.parent_source_q">{!bool must=$parent_row_q must=$parent_text_q}</str>
+          <str name="found_children.parent_match_q">{!join from=id to=related_dataset_id defType=lucene method=dvWithScore score=none v=$parent_source_q}</str>
+          <str name="found_children.q">{!bool should=$child_text_q should=$parent_match_q}</str>
+          <str name="found_children.fl">id</str>
+          <str name="found_children.fq">{!tag=parent_child_filter}isChild:true</str>
+          <str name="found_children.fq">metadata_status:Active</str>
+          <str name="found_children.fq">collection:(ADC SIOS METNCS NBS NMDC NSDN)</str>
+          <str name="found_children.fq">{!term f=related_dataset_id v=$row.id}</str>
+          <str name="total_children.q">id:*</str>
+          <str name="total_children.fl">id</str>
           <str name="total_children.fq">+metadata_status:"Active"</str>
+          <str name="total_children.fq">collection:(ADC SIOS METNCS NBS NMDC NSDN)</str>
+          <str name="total_children.fq">isChild:true</str>
+          <str name="total_children.fq">{!term f=related_dataset_id v=$row.id}</str>
           <str name="total_children.rows">0</str>
-          <str name="parent.q">{!terms f=id v=$row.related_dataset_id}</str>
+          <!-- <str name="parent.q">{!term f=id v=$row.related_dataset_id}</str>
           <str name="parent.fq">isParent:"true"</str>
           <str name="parent.rows">1</str>
-          <str name="parent.fl">id,metadata_identifier,title, abstract, related_url_landing*,temporal*date*</str>
+          <str name="parent.fl">id,metadata_identifier,title, abstract, related_url_landing*,temporal*date*</str> -->
 
 
+        </lst>
+        <lst>
+          <str name="q">{!join from=related_dataset_id to=id method=dvWithScore score=none defType=lucene v='isChild:true AND metadata_status:Active'}</str>
+          <str name="rows">0</str>
+          <str name="fq">metadata_status:Active</str>
+          <str name="fq">-isChild:true</str>
         </lst>
       </arr>
     </listener>
     <listener event="firstSearcher" class="solr.QuerySenderListener">
       <arr name="queries">
         <lst>
-          <str name="q">*:* OR _query_:{!join from=related_dataset_id to=id v='*:*'}</str>
+          <str name="q">*:*</str>
+          <str name="defType">lucene</str>
           <str name="q.op">OR</str>
           <str name="rows">60</str>
-          <str name="fl">id,related_dataset_id,platform_instrument_product_type,thumbnail_url,isParent,isChild,related_url_landing_page,title,data_access_url_ogc_wms,project_long_name,project_short_name,personnel_organisation,last_metadata_update_datetime,dataset_citation_doi,temporal_extent_start_date,temporal_extent_end_date,abstract,related_url_landing_page_desc,data_access_url_opendap,feat
-ure_type,ss_access,data_access_url_http,data_access_url_ftp,data_access_url_odata,use_constraint_resource,use_constraint_license_text,use_constraint_identifier,access_constraint,score,hash,uuid,geographic_extent_rectangle_south,geographic_extent_rectangle_north,geographic_extent_rectangle_west,geographic_extent_rectangle_east,use_constraint,activity_type,dataset_production_status,metadata_status,personnel_name,metadata_identifier,collection,data_access_wms_layers,total_children:[subquery],found_children:[subquery],parent:[subquery]</str>
+          <str name="fl">id,related_dataset_id,platform_instrument_product_type,thumbnail_url,isParent,isChild,related_url_landing_page,title,data_access_url_ogc_wms,project_long_name,project_short_name,personnel_organisation,last_metadata_update_datetime,dataset_citation_doi,temporal_extent_start_date,temporal_extent_end_date,abstract,related_url_landing_page_desc,data_access_url_opendap,feature_type,ss_access,data_access_url_http,data_access_url_ftp,data_access_url_odata,use_constraint_resource,use_constraint_license_text,use_constraint_identifier,access_constraint,score,hash,uuid,geographic_extent_rectangle_south,geographic_extent_rectangle_north,geographic_extent_rectangle_west,geographic_extent_rectangle_east,use_constraint,activity_type,dataset_production_status,metadata_status,personnel_name,metadata_identifier,collection,data_access_wms_layers,total_children:[subquery],found_children:[subquery]</str>
           <str name="df">full_text</str>
           <str name="sort">temporal_extent_start_date desc</str>
-          <str name="fq">(+metadata_status:"Active" +isChild:"false")</str>
-          <str name="fq">(isParent:"true" isParent:"false")</str>
-          <str name="fq">collection:(ADC SIOS METNCS NBS NMDC NSDN)</str>
-          <str name="found_children.q">*:*</str>
-          <str name="found_children.fq">(+metadata_status:"Active" +isChild:"true")</str>
-          <str name="found_children.fq">{!terms f=related_dataset_id v=$row.id}</str>
-          <str name="found_children.rows">0</str>
-          <str name="total_children.q">{!terms f=related_dataset_id v=$row.id}</str>
+          <str name="fq">metadata_status:Active</str>
+          <str name="fq">{!tag=parent_child_filter}-isChild:true</str>
+          <str name="found_children.defType">lucene</str>
+          <str name="found_children.child_text_q">*:*</str>
+          <str name="found_children.parent_row_q">{!term f=id v=$row.id}</str>
+          <str name="found_children.parent_text_q">*:*</str>
+          <str name="found_children.parent_source_q">{!bool must=$parent_row_q must=$parent_text_q}</str>
+          <str name="found_children.parent_match_q">{!join from=id to=related_dataset_id defType=lucene method=dvWithScore score=none v=$parent_source_q}</str>
+          <str name="found_children.q">{!bool should=$child_text_q should=$parent_match_q}</str>
+          <str name="found_children.fl">id</str>
+          <str name="found_children.fq">{!tag=parent_child_filter}isChild:true</str>
+          <str name="found_children.fq">metadata_status:Active</str>
+          <str name="found_children.fq">collection:(ADC SIOS METNCS NBS NMDC NSDN)</str>
+          <str name="found_children.fq">{!term f=related_dataset_id v=$row.id}</str>
+          <str name="total_children.q">id:*</str>
+          <str name="total_children.fl">id</str>
           <str name="total_children.fq">+metadata_status:"Active"</str>
+          <str name="total_children.fq">collection:(ADC SIOS METNCS NBS NMDC NSDN)</str>
+          <str name="total_children.fq">isChild:true</str>
+          <str name="total_children.fq">{!term f=related_dataset_id v=$row.id}</str>
           <str name="total_children.rows">0</str>
-          <str name="parent.q">{!terms f=id v=$row.related_dataset_id}</str>
-          <str name="parent.fq">isParent:"true"</str>
-          <str name="parent.rows">1</str>
-          <str name="parent.fl">id,metadata_identifier,title, abstract, related_url_landing*,temporal*date*</str>
-
 
         </lst>
-
+        <lst>
+          <str name="q">{!join from=related_dataset_id to=id method=dvWithScore score=none defType=lucene v='isChild:true AND metadata_status:Active'}</str>
+          <str name="rows">0</str>
+          <str name="fq">metadata_status:Active</str>
+          <str name="fq">-isChild:true</str>
+        </lst>
       </arr>
     </listener>
 
@@ -540,7 +569,7 @@ ure_type,ss_access,data_access_url_http,data_access_url_ftp,data_access_url_odat
   <!-- Following is a dynamic way to include other components or any customized solrconfig.xml stuff, added by other contrib modules -->
   &extra;
 
-          <!-- Highlighting Component
+                <!-- Highlighting Component
 
        http://wiki.apache.org/solr/HighlightingParameters
     -->
@@ -834,43 +863,28 @@ ure_type,ss_access,data_access_url_http,data_access_url_ftp,data_access_url_odat
   <!-- ping/healthcheck -->
   <requestHandler name="/admin/ping" class="solr.PingRequestHandler">
     <lst name="invariants">
-      <str name="q">solrpingquery</str>
+      <!-- Replace 'solrpingquery' with a valid query to check the health -->
+      <str name="q">*:*</str>
+      <str name="rows">0</str>      <!-- Ensure no documents are returned -->
     </lst>
     <lst name="defaults">
       <str name="echoParams">all</str>
     </lst>
-    <!-- An optional feature of the PingRequestHandler is to configure the
-         handler with a "healthcheckFile" which can be used to enable/disable
-         the PingRequestHandler.
-         relative paths are resolved against the data dir
-      -->
-    <str name="healthcheckFile">adc-enabled.txt</str>
   </requestHandler>
 
- <initParams path="/update/**">
+  <!-- Realtime get handler -->
+  <requestHandler name="/get" class="solr.RealTimeGetHandler">
+    <lst name="defaults">
+      <str name="omitHeader">true</str>
+    </lst>
+  </requestHandler>
+
+  <!-- Configure the update handler defaults -->
+  <initParams path="/update/**">
     <lst name="defaults">
       <str name="update.chain">metsis</str>
     </lst>
   </initParams>
-
- <initParams path="/query,/select,/spell">
-    <lst name="defaults">
-      <str name="df">full_text</str>
-    </lst>
-  </initParams>
-
-
-
-  <updateRequestProcessorChain name="uuid">
-    <processor class="solr.UUIDUpdateProcessorFactory">
-      <str name="fieldName">uuid</str>
-    </processor>
-    <processor class="UniqFieldsUpdateProcessorFactory">
-      <str name="fieldRegex">.keywords_level*</str>
-    </processor>
-    <processor class="solr.DistributedUpdateProcessorFactory"/>
-    <processor class="solr.RunUpdateProcessorFactory" />
-  </updateRequestProcessorChain>
 
   <!--  LTR query parser
 

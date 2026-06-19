@@ -14,6 +14,9 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v6
 
+    - name: Install jq
+      run: sudo apt-get update && sudo apt-get install -y jq
+
     - name: Build Docker image
       run: docker build -t my_solr_image .
 
@@ -24,7 +27,8 @@ jobs:
       run: |
         sleep 30 # Give Solr some time to start
         docker exec adc solr create_core -c adc -d /var/solr/data/configsets/adc || exit 1
-    - name: Ingest test docuement
+
+    - name: Test atomic update flow
       run: |
-        sleep 5 # Give Solr some time to start
-        docker exec adc solr post -c adc -out -verbose /var/solr/data/configsets/adc/example_mmd_solr.json || exit 1
+        chmod +x tests/test_atomic_update.sh
+        ./tests/test_atomic_update.sh
