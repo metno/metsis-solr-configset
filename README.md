@@ -17,6 +17,7 @@ Tagging releases from this repository should follow the versioning from the MMD 
 
 ### Previous releases
 
+- v3.5.3-solr9 - 2025-08-28 - For Solr 9.10 MMD v3.4
 - v3.4-solr9 - 2023-02-10 - For Solr 9.1 MMD v3.4
 - v3.4-solr8 - 2023-02-10 - For Solr 8.11 MMD v3.4
 
