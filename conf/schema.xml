@@ -4,7 +4,7 @@
 <!ENTITY extratypes SYSTEM "schema_extra_types.xml">
 ]>
 
-<schema name="metsis-adc-4.x" version="1.7">
+<schema name="mmd-v4.0" version="1.7">
   <!-- Solr Specific fields -->
   <field name="_version_" type="plong" indexed="false" stored="false"/>
   <field name="_root_" type="string" indexed="true" stored="false" />
